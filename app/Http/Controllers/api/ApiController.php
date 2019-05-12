@@ -372,7 +372,7 @@ class ApiController extends Controller
         $notification_qty = Notification::where("mechanic_id",$mechanic->user->id)->first();
 
         $notification = Notification::find($request->notif_id)->first();
-//        $notification->is_rate = 1;
+        $notification->is_rate = 1;
 //        $notification->save();
 //
 //        if($notification_qty){
