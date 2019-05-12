@@ -26,7 +26,7 @@ class CreateMechanicsTable extends Migration
             $table->smallInteger('sexe')->nullable();
             $table->smallInteger('haveScanner')->nullable()->default(\App\Models\Mechanic::HAVENOt_SCANNER);
             $table->smallInteger('haveTug')->nullable()->default(\App\Models\Mechanic::HAVENOt_TUG);
-            $table->float('rating')->nullable();
+            $table->float('rating')->default(5.0);
             $table->timestamps();
         });
     }

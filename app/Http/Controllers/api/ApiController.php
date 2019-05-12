@@ -366,5 +366,33 @@ class ApiController extends Controller
             return response()->json( 405);
     }
 
+    public function setRating(Request $request) {
+
+        $users = User::find( $request->mechanic_id)->first();
+        $mechanic = Mechanic::where("user_id",$users->id)->first();
+        $notification = Notification::where("mechanic_id",$request->mechanic_id)->first();
+        if($notification){
+            $notification = Notification::where("mechanic_id",$request->mechanic_id)
+                ->where("is_rate",1)
+                ->count();
+        }
+        else{
+           $notification = 0;
+        }
+
+        if($mechanic->rating){
+            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification;
+
+        }
+        else{
+            $mechanic->rating = (0 + $request->rating)/$notification;
+
+        }
+
+        $mechanic->save();
+        return response()->json($this->successStatus);
+    }
+
+
 
 }
