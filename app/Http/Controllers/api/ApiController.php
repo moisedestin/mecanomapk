@@ -369,17 +369,21 @@ class ApiController extends Controller
     public function setRating(Request $request) {
 
         $mechanic = Mechanic::where("user_id",$request->mechanic_id)->first();
-        $notifications = Notification::where("mechanic_id",$mechanic->user->id)->first();
+        $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+            ->where("is_rate",1)
+            ->first();
 
         $notification = Notification::find($request->notif_id);
-//        $notification->is_rate = 1;
-//        $notification->save();
+        $notification->is_rate = 1;
+        $notification->save();
 
         $notification_qty = 0;
 
 //
         if($notifications){
-            $notifications = Notification::where("mechanic_id",$mechanic->user->id)->get();
+            $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+                ->where("is_rate",1)
+                ->get();
             $notification_qty = count($notifications);
          }
 
