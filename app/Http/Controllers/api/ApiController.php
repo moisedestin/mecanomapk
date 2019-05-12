@@ -371,9 +371,9 @@ class ApiController extends Controller
         $mechanic = Mechanic::where("user_id",$request->mechanic_id)->first();
         $notifications = Notification::where("mechanic_id",$mechanic->user->id)->first();
 
-        $notification = Notification::find($request->notif_id)->first();
-        $notification->is_rate = 1;
-        $notification->save();
+        $notification = Notification::find($request->notif_id);
+//        $notification->is_rate = 1;
+//        $notification->save();
 
         $notification_qty = 0;
 
