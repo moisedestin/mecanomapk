@@ -379,7 +379,8 @@ class ApiController extends Controller
 
         $notification_qty = 0;
 
-//
+        $mechanic->total_rating =  $mechanic->total_rating+$request->rating;
+
         if($notifications){
             $notifications = Notification::where("mechanic_id",$mechanic->user->id)
                 ->where("is_rate",1)
@@ -390,9 +391,9 @@ class ApiController extends Controller
         if(!empty($mechanic->rating)){
 
             if($notification_qty == 0)
-                $mechanic->rating = ($mechanic->rating + $request->rating);
+                $mechanic->rating = ($mechanic->total_rating+$request->rating+1);
             else
-                $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
+                $mechanic->rating = ($mechanic->total_rating+$request->rating+1)/$notification_qty;
 
         }
         else{
@@ -400,7 +401,6 @@ class ApiController extends Controller
                 $mechanic->rating = (0 + $request->rating)/$notification_qty;
             else
                 $mechanic->rating = (0 + $request->rating)/$notification_qty;
-
 
         }
 
