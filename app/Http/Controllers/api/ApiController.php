@@ -369,31 +369,31 @@ class ApiController extends Controller
     public function setRating(Request $request) {
 
         $mechanic = Mechanic::where("user_id",$request->mechanic_id)->first();
-        $notification_qty = Notification::where("mechanic_id",$mechanic->user->id)->first();
+        $notifications = Notification::where("mechanic_id",$mechanic->user->id)->first();
 
         $notification = Notification::find($request->notif_id)->first();
         $notification->is_rate = 1;
-//        $notification->save();
+        $notification->save();
+
+        $notification_qty = 0;
+
 //
-//        if($notification_qty){
-//            $notification_qty = Notification::where("mechanic_id",$mechanic->user->id)
-//                ->where("is_rate",1)
-//                ->count();
-//         }
-//        else{
-//           $notification_qty = 0;
-//        }
-//
-//        if($mechanic->rating){
-//            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
-//
-//        }
-//        else{
-//            $mechanic->rating = (0 + $request->rating)/$notification_qty;
-//
-//        }
-//
-//        $mechanic->save();
+        if($notifications){
+            $notification_qty = Notification::where("mechanic_id",$mechanic->user->id)
+                ->where("is_rate",1)
+                ->count();
+         }
+
+        if($mechanic->rating != null){
+            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
+
+        }
+        else{
+            $mechanic->rating = (0 + $request->rating)/$notification_qty;
+
+        }
+
+        $mechanic->save();
         return response()->json($this->successStatus);
     }
 
