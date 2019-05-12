@@ -379,9 +379,9 @@ class ApiController extends Controller
 
 //
         if($notifications){
-            $notification_qty = Notification::where("mechanic_id",$mechanic->user->id)
-                ->where("is_rate",1)
-                ->count();
+            $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+                ->where("is_rate",1)->get();
+            $notification_qty = count($notifications);
          }
 
         if(!empty($mechanic->rating)){
