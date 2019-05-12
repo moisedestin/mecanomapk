@@ -16,13 +16,13 @@ class CreateMechanicsTable extends Migration
         Schema::create('mechanics', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('user_id')->unsigned();
-            $table->string('services')->nullable();
             $table->string('specialisation')->nullable();
             $table->timestamp('birthday')->nullable();
             $table->string('picture')->nullable();
             $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
             $table->string('availability')->nullable(); //tranche de disponibilité
+            $table->text('services')->nullable();
             $table->smallInteger('sexe')->nullable();
             $table->smallInteger('haveScanner')->nullable()->default(\App\Models\Mechanic::HAVENOt_SCANNER);
             $table->smallInteger('haveTug')->nullable()->default(\App\Models\Mechanic::HAVENOt_TUG);

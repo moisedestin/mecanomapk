@@ -106,6 +106,20 @@ class MechanicCrudController extends CrudController
 
         ]);
 
+        //todo:: services
+        $this->crud->addField([ // select_from_array
+            'name' => 'services',
+            'label' => "Services",
+            'type' => 'select2_from_array',
+            'options' => [
+                "One" => "One",
+                "two" => "Two"
+            ],
+            'allows_null' => false,
+            'default' => 'one',
+             'allows_multiple' => true
+        ]);
+
         $this->crud->addField([
             'name'=>'availability',
             'label'=>'Disponibilite horaires ',
@@ -150,7 +164,7 @@ class MechanicCrudController extends CrudController
 
         $mechanic = new Mechanic();
         $mechanic->user_id = $user->id;
-//        $mechanic->services = $request->services;
+        $mechanic->services = \GuzzleHttp\json_encode($request->services);
         $mechanic->sexe = $request->gender;
 //        $mechanic->birthday = Carbon::parse($request->birthday)->toDateTimeString();
         $mechanic->phone1 = $request->phone1;
