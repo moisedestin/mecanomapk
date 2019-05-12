@@ -312,7 +312,7 @@ class ApiController extends Controller
         $driverName = User::where('id', $request->mechanic_id)
             ->select('name')
             ->first()->name;
-        $notification->body = $driverName." a annulé la demande";
+        $notification->body = $driverName." a décliné la demande";
         $notification->save();
 
         $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)

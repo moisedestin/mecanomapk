@@ -40,6 +40,14 @@ class MechanicCrudController extends CrudController
 //        $this->crud->setFromDb();
         $this->crud->setColumns(['phone1','phone2','availability']);
 
+        $this->crud->addColumn([
+            'name' => 'email',
+            'label' => 'Email',
+            'type' => 'closure',
+            'function' => function($entry) {
+                return $entry->user->email;
+            }
+        ])->makeFirstColumn();
 
         $this->crud->addField([
             'name'=>'full_name',
