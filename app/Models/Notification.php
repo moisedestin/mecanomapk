@@ -19,7 +19,7 @@ class Notification extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ["is_rate","mechanic_id"];
     // protected $hidden = [];
     // protected $dates = [];
 

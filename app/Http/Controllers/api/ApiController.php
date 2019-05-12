@@ -370,24 +370,29 @@ class ApiController extends Controller
 
         $users = User::find( $request->mechanic_id)->first();
         $mechanic = Mechanic::where("user_id",$users->id)->first();
-        $notification = Notification::where("mechanic_id",$request->mechanic_id)->first();
-        if($notification){
-            $notification = Notification::where("mechanic_id",$request->mechanic_id)
-                ->where("is_rate",1)
-                ->count();
-        }
-        else{
-           $notification = 0;
-        }
+        $notification_qty = Notification::where("mechanic_id",$request->mechanic_id)->first();
 
-        if($mechanic->rating){
-            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification;
-
-        }
-        else{
-            $mechanic->rating = (0 + $request->rating)/$notification;
-
-        }
+        $notification = Notification::find($request->notif_id)->first();
+//        $notification->is_rate = 1;
+//        $notification->save();
+//
+//        if($notification_qty){
+//            $notification_qty = Notification::where("mechanic_id",$request->mechanic_id)
+//                ->where("is_rate",1)
+//                ->count();
+//         }
+//        else{
+//           $notification_qty = 0;
+//        }
+//
+//        if($mechanic->rating){
+//            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
+//
+//        }
+//        else{
+//            $mechanic->rating = (0 + $request->rating)/$notification_qty;
+//
+//        }
 
         $mechanic->save();
         return response()->json($this->successStatus);
