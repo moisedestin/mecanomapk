@@ -384,14 +384,14 @@ class ApiController extends Controller
                 ->count();
          }
 
-//        if($mechanic->rating != null){
-//            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
-//
-//        }
-//        else{
-//            $mechanic->rating = (0 + $request->rating)/$notification_qty;
-//
-//        }
+        if(!empty($mechanic->rating)){
+            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
+
+        }
+        else{
+            $mechanic->rating = (0 + $request->rating)/$notification_qty;
+
+        }
 
         $mechanic->save();
         return response()->json($this->successStatus);
