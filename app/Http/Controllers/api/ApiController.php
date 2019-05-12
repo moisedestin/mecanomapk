@@ -385,11 +385,11 @@ class ApiController extends Controller
          }
 
         if(!empty($mechanic->rating)){
-            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
+//            $mechanic->rating = ($mechanic->rating + $request->rating)/$notification_qty;
 
         }
         else{
-            $mechanic->rating = (0 + $request->rating)/$notification_qty;
+//            $mechanic->rating = (0 + $request->rating)/$notification_qty;
 
         }
 
