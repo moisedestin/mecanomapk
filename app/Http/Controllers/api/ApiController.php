@@ -391,9 +391,9 @@ class ApiController extends Controller
         if(!empty($mechanic->rating)){
 
             if($notification_qty == 0)
-                $mechanic->rating = ($mechanic->total_rating+$request->rating+1);
+                $mechanic->rating = ($mechanic->total_rating+$request->rating);
             else
-                $mechanic->rating = ($mechanic->total_rating+$request->rating+1)/$notification_qty;
+                $mechanic->rating = ($mechanic->total_rating+$request->rating)/$notification_qty;
 
         }
         else{
