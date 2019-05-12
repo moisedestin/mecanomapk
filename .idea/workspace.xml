@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="" />
+    <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,7 +41,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="notifications" />
+        <option name="myItemId" value="users" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -70,11 +72,10 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="390" column="11" lean-forward="true" selection-start-line="390" selection-start-column="11" selection-end-line="390" selection-end-column="11" />
+            <state relative-caret-position="128">
+              <caret line="384" column="9" lean-forward="true" selection-start-line="384" selection-start-column="9" selection-end-line="384" selection-end-column="9" />
               <folding>
                 <element signature="e#467#1203#0#PHP" expanded="false" />
-                <element signature="e#1209#2153#0#PHP" expanded="false" />
                 <element signature="e#2159#2876#0#PHP" expanded="false" />
                 <element signature="e#2882#3105#0#PHP" expanded="false" />
                 <element signature="e#3111#3404#0#PHP" expanded="false" />
@@ -174,6 +175,7 @@
       <find>da</find>
       <find>driver</find>
       <find>status</find>
+      <find>users</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -212,8 +214,8 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_065407_add_is_rate_to_notifications.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_13_021930_create_mechanics_table.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
         <option value="$PROJECT_DIR$/app/Models/Notification.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
       </list>
     </option>
   </component>
@@ -530,12 +532,12 @@
       <workItem from="1556038927277" duration="2876000" />
       <workItem from="1556318844482" duration="2000" />
       <workItem from="1557641910001" duration="5489000" />
-      <workItem from="1557647971561" duration="670000" />
+      <workItem from="1557647971561" duration="923000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="66331000" />
+    <option name="totallyTimeSpent" value="66584000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -893,11 +895,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="390" column="11" lean-forward="true" selection-start-line="390" selection-start-column="11" selection-end-line="390" selection-end-column="11" />
+        <state relative-caret-position="128">
+          <caret line="384" column="9" lean-forward="true" selection-start-line="384" selection-start-column="9" selection-end-line="384" selection-end-column="9" />
           <folding>
             <element signature="e#467#1203#0#PHP" expanded="false" />
-            <element signature="e#1209#2153#0#PHP" expanded="false" />
             <element signature="e#2159#2876#0#PHP" expanded="false" />
             <element signature="e#2882#3105#0#PHP" expanded="false" />
             <element signature="e#3111#3404#0#PHP" expanded="false" />
