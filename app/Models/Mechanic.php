@@ -33,7 +33,7 @@ class Mechanic extends Model
     const HAVENOt_TUG = 1;
 
     protected $fillable = [
-        'user_id','phone1','phone2','availability'
+        'user_id','phone1','phone2','availability', 'services'
     ];
     // protected $hidden = [];
     // protected $dates = [];
