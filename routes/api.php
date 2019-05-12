@@ -34,6 +34,6 @@ Route::group(['namespace' => 'api'], function () {
     Route::post('notifRequestFromCancel', 'ApiController@notifRequestFromCancel');
     Route::post('notifRequestFromAccept', 'ApiController@notifRequestFromAccept');
 
-    Route::post('setRating', 'UserController@setRating');
+    Route::post('setRating', 'ApiController@setRating');
 
 });
