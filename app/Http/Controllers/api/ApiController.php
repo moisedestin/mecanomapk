@@ -300,6 +300,9 @@ class ApiController extends Controller
 
     public function notifRequestFromCancel(Request $request) {
 
+        //note that mechanic_id and user_id in these case is not id from mechanictable
+        //this is the user id for both
+
         $notification = new Notification;
         $notification->status = 1;
         $notification->driver_id =$request->driver_id;
@@ -333,6 +336,8 @@ class ApiController extends Controller
 
     public function notifRequestFromAccept(Request $request) {
 
+        //note that mechanic_id and user_id in these case is not id from mechanictable
+        //this is the user id for both
 
         $notification = new Notification;
         $notification->driver_id =$request->driver_id;
@@ -369,9 +374,7 @@ class ApiController extends Controller
     public function setRating(Request $request) {
 
         $mechanic = Mechanic::where("user_id",$request->mechanic_id)->first();
-        $notifications = Notification::where("mechanic_id",$mechanic->user->id)
-            ->where("is_rate",1)
-            ->first();
+
 
         $notification = Notification::find($request->notif_id);
         $notification->is_rate = 1;
@@ -379,13 +382,18 @@ class ApiController extends Controller
 
         $notification_qty = 0;
 
+
         $mechanic->total_rating =  $mechanic->total_rating+$request->rating;
+
+        $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+            ->where("is_rate",1)
+            ->first();
 
         if($notifications){
             $notifications = Notification::where("mechanic_id",$mechanic->user->id)
                 ->where("is_rate",1)
                 ->get();
-            $notification_qty = count($notifications);
+            $notification_qty = count($notifications) + 1;
          }
 
         if(!empty($mechanic->rating)){
@@ -398,9 +406,9 @@ class ApiController extends Controller
         }
         else{
             if($notification_qty == 0)
-                $mechanic->rating = (0 + $request->rating)/$notification_qty;
+                $mechanic->rating = $request->rating ;
             else
-                $mechanic->rating = (0 + $request->rating)/$notification_qty;
+                $mechanic->rating =  $request->rating/$notification_qty;
 
         }
 
