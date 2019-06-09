@@ -4,6 +4,7 @@
     <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -32,6 +33,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="mecanomhackaton@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="notifications" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
@@ -39,7 +54,7 @@
       <file leaf-file-name="MechanicCrudController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
+            <state relative-caret-position="576">
               <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
               <folding />
             </state>
@@ -86,21 +101,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mecanomhackaton.mechanics" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.mechanics">
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="mecanomhackaton.notifications" pinned="false" current-in-tab="false">
         <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.notifications">
           <provider editor-type-id="text-editor">
@@ -119,22 +119,41 @@
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="395" column="57" lean-forward="false" selection-start-line="395" selection-start-column="57" selection-end-line="395" selection-end-column="57" />
+            <state relative-caret-position="127">
+              <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
               <folding>
-                <element signature="e#467#1203#0#PHP" expanded="false" />
-                <element signature="e#1209#2153#0#PHP" expanded="false" />
-                <element signature="e#2159#2876#0#PHP" expanded="false" />
-                <element signature="e#2882#3105#0#PHP" expanded="false" />
-                <element signature="e#3111#3404#0#PHP" expanded="false" />
-                <element signature="e#3410#3870#0#PHP" expanded="false" />
-                <element signature="e#3875#5161#0#PHP" expanded="false" />
-                <element signature="e#5167#6918#0#PHP" expanded="false" />
-                <element signature="e#6924#7484#0#PHP" expanded="false" />
-                <element signature="e#7490#7685#0#PHP" expanded="false" />
-                <element signature="e#7690#8040#0#PHP" expanded="false" />
-                <element signature="e#8045#9534#0#PHP" expanded="false" />
+                <element signature="e#522#1258#0#PHP" expanded="false" />
+                <element signature="e#1264#2208#0#PHP" expanded="false" />
+                <element signature="e#2214#2931#0#PHP" expanded="false" />
+                <element signature="e#2937#3160#0#PHP" expanded="false" />
+                <element signature="e#3166#3459#0#PHP" expanded="false" />
+                <element signature="e#3465#3925#0#PHP" expanded="false" />
+                <element signature="e#3930#5216#0#PHP" expanded="false" />
+                <element signature="e#6979#7539#0#PHP" expanded="false" />
+                <element signature="e#7545#7740#0#PHP" expanded="false" />
+                <element signature="e#7745#8095#0#PHP" expanded="false" />
+                <element signature="e#8100#9589#0#PHP" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/web.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="25" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -149,20 +168,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2019_05_12_065407_add_is_rate_to_notifications.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_12_065407_add_is_rate_to_notifications.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="416">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="2019_05_12_151545_add_total_rating_to_mechanics.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="432">
               <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
@@ -218,12 +227,12 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LocationCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DriverCrudController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_065407_add_is_rate_to_notifications.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Models/Notification.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_13_021930_create_mechanics_table.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php" />
         <option value="$PROJECT_DIR$/app/Models/Mechanic.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
       </list>
     </option>
@@ -257,7 +266,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -460,7 +469,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -560,25 +569,30 @@
       <workItem from="1556318844482" duration="2000" />
       <workItem from="1557641910001" duration="5489000" />
       <workItem from="1557647971561" duration="11346000" />
-      <workItem from="1558028208753" duration="6138000" />
+      <workItem from="1558028208753" duration="7102000" />
+      <workItem from="1558241737339" duration="3060000" />
+      <workItem from="1559178569639" duration="590000" />
+      <workItem from="1559526357695" duration="579000" />
+      <workItem from="1560029187084" duration="509000" />
+      <workItem from="1560034013310" duration="11381000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="83145000" />
+    <option name="totallyTimeSpent" value="100228000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29198185" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31467474" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1633888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2706645" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -719,7 +733,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="704">
           <caret line="49" column="35" lean-forward="false" selection-start-line="49" selection-start-column="35" selection-end-line="52" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -757,7 +770,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -765,7 +777,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -773,7 +784,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -781,7 +791,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -789,7 +798,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="19" column="9" lean-forward="false" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -804,23 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="36" column="34" lean-forward="false" selection-start-line="36" selection-start-column="34" selection-end-line="36" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -843,7 +834,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="29" column="33" lean-forward="false" selection-start-line="29" selection-start-column="33" selection-end-line="29" selection-end-column="33" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -851,7 +841,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="28" column="48" lean-forward="false" selection-start-line="28" selection-start-column="48" selection-end-line="28" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -881,7 +870,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
+        <state relative-caret-position="576">
           <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
           <folding />
         </state>
@@ -889,7 +878,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
+        <state relative-caret-position="432">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
@@ -921,7 +910,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.notifications">
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.mechanics">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -934,7 +923,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.mechanics">
+    <entry file="file://$PROJECT_DIR$/routes/web.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="19" column="23" lean-forward="false" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="32" column="67" lean-forward="false" selection-start-line="32" selection-start-column="67" selection-end-line="32" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.notifications">
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -949,21 +954,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="395" column="57" lean-forward="false" selection-start-line="395" selection-start-column="57" selection-end-line="395" selection-end-column="57" />
+        <state relative-caret-position="127">
+          <caret line="338" column="0" lean-forward="false" selection-start-line="338" selection-start-column="0" selection-end-line="338" selection-end-column="0" />
           <folding>
-            <element signature="e#467#1203#0#PHP" expanded="false" />
-            <element signature="e#1209#2153#0#PHP" expanded="false" />
-            <element signature="e#2159#2876#0#PHP" expanded="false" />
-            <element signature="e#2882#3105#0#PHP" expanded="false" />
-            <element signature="e#3111#3404#0#PHP" expanded="false" />
-            <element signature="e#3410#3870#0#PHP" expanded="false" />
-            <element signature="e#3875#5161#0#PHP" expanded="false" />
-            <element signature="e#5167#6918#0#PHP" expanded="false" />
-            <element signature="e#6924#7484#0#PHP" expanded="false" />
-            <element signature="e#7490#7685#0#PHP" expanded="false" />
-            <element signature="e#7690#8040#0#PHP" expanded="false" />
-            <element signature="e#8045#9534#0#PHP" expanded="false" />
+            <element signature="e#522#1258#0#PHP" expanded="false" />
+            <element signature="e#1264#2208#0#PHP" expanded="false" />
+            <element signature="e#2214#2931#0#PHP" expanded="false" />
+            <element signature="e#2937#3160#0#PHP" expanded="false" />
+            <element signature="e#3166#3459#0#PHP" expanded="false" />
+            <element signature="e#3465#3925#0#PHP" expanded="false" />
+            <element signature="e#3930#5216#0#PHP" expanded="false" />
+            <element signature="e#6979#7539#0#PHP" expanded="false" />
+            <element signature="e#7545#7740#0#PHP" expanded="false" />
+            <element signature="e#7745#8095#0#PHP" expanded="false" />
+            <element signature="e#8100#9589#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -10,7 +10,10 @@ use App\Models\Notification;
 use App\Models\RequestEmergency;
 use App\Models\Vehicle;
 use App\User;
-use Illuminate\Http\Request;
+ use Carbon\Carbon;
+ use DateInterval;
+ use DateTime;
+ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -297,6 +300,95 @@ class ApiController extends Controller
 
         return response()->json($arrayAllData);
     }
+    public function getRemainingTime(Request $request) {
+        $notif_id = $request->notif_id;
+
+
+        $notification =  Notification::find($notif_id);
+
+        $delay = $notification->delay;
+        $date_start = Carbon::parse($notification->created_at);
+        $date_now =  Carbon::now();
+
+
+        $minutes = 0;
+        $seconds_total = 0;
+
+        if (strpos($delay, 'hr') !== false) {
+            $delay = substr($delay,0,-3);
+            $minutes = (int)$delay * 60;
+            $seconds_total = $minutes * 60;
+        }
+        if (strpos($delay, 'min') !== false) {
+            $delay = substr($delay,0,-4);
+            $minutes = (int)$delay;
+            $seconds_total = $minutes * 60;
+
+        }
+        $date_start->addMinutes( $minutes);
+
+
+        if( $date_start->greaterThan($date_now)){
+            $date_diff = $date_start->diff($date_now);
+            $minutes = $date_diff->days * 24 * 60;
+            $minutes += $date_diff->h * 60;
+            $minutes += $date_diff->i;
+            $seconds_remaining = $date_diff->s + ($minutes * 60);
+            $arrayAllData = [
+                "seconds_remaining" => $seconds_remaining,
+                "seconds_total" => $seconds_total,
+                "end" =>false
+            ];
+
+        }
+
+        else{
+            $arrayAllData = [
+                "seconds" => 0,
+                "end" =>true
+            ];
+        }
+
+
+//        $notification->mechanic_name = User::find($notification->mechanic_id)->email;
+//        $notification->driver_name = User::find($notification->driver_id)->email;
+//        $user =  User::find($notification->mechanic_id);
+//
+//        $mechanic = Mechanic::where("user_id",$user->id)->first();
+//
+//        $garage =  Garage::where("mechanic_id",$mechanic->id)->first();
+//        $notification->garage_name = $garage->name;
+//
+//        $notification->garage_address = $garage->addresse;
+//        $notificationInfos = User::find($notification->driver_id);
+//
+//
+//        $notificationInfos->addHidden(["password","token"]);
+//        $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
+//
+//        $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
+//        $location = Location::find($requestEmergency->location_id);
+//
+//
+//        $arrayDV  = array();
+//        $arrayDV["detailVehicule"] = $vehiculeDetail  ;
+//
+//        $arrayDV["trouble"] =  $requestEmergency->trouble ;
+//        $arrayLoc = array("locations" =>$location) ;
+//        $arrayNotif = array_merge($arrayDV, $arrayLoc,$notification->toArray());
+//
+//        $arrayNotification = array("notifications" =>$arrayNotif) ;
+//
+//
+//
+//        $arrayAllData = array_merge($arrayNotification, $notificationInfos->toArray() );
+//
+//
+//
+//
+        return response()->json($arrayAllData);
+    }
+
 
     public function notifRequestFromCancel(Request $request) {
 

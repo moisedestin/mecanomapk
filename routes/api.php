@@ -30,6 +30,7 @@ Route::group(['namespace' => 'api'], function () {
     Route::post('getAllNotif', 'ApiController@getAllNotif');
     Route::post('getAllHisto', 'ApiController@getAllHisto');
     Route::post('getNotifInfo', 'ApiController@getNotifInfo');
+    Route::post('getRemainingTime', 'ApiController@getRemainingTime');
 
     Route::post('notifRequestFromCancel', 'ApiController@notifRequestFromCancel');
     Route::post('notifRequestFromAccept', 'ApiController@notifRequestFromAccept');
