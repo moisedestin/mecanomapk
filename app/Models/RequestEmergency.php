@@ -19,7 +19,7 @@ class RequestEmergency extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = [];
+    protected $fillable = ["process_fail","process_success","is_rate"];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,10 @@ class RequestEmergency extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function notification() {
+        return $this->hasMany(Notification::class);
+    }
 
     /*
     |--------------------------------------------------------------------------

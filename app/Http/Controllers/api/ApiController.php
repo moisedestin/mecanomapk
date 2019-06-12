@@ -178,6 +178,7 @@ class ApiController extends Controller
         $array = $request->detailVehicule;
         $detailvehicule->mark = $array["mark"];
         $detailvehicule->model = $array["model"];
+        $detailvehicule->color = $array["color"];
         $detailvehicule->year = $array["year"];
         $detailvehicule->transmission = $array["transmission"];
         $detailvehicule->save();
@@ -190,14 +191,14 @@ class ApiController extends Controller
         $requestEmergency->vehicule_id= $detailvehicule->id;
         $requestEmergency->location_id= $location->id;
         $requestEmergency->trouble = $array["trouble"];
+        $requestEmergency->mechanic_user_id = $request->mechanic_user_id;
+        $requestEmergency->driver_user_id = $arrayUserData["id"];
         $requestEmergency->save();
 
         $notification = new Notification;
         $notification->date = $array["date"];
 
-        $notification->driver_id = $arrayUserData["id"];
-        $notification->mechanic_id = $request->mechanic_id;
-        $notification->principal_id = $request->mechanic_id;
+        $notification->recipient_id = $request->mechanic_user_id;
         $notification->request_emergency_id = $requestEmergency->id;
 
 
@@ -209,7 +210,7 @@ class ApiController extends Controller
         $notification->save();
 
 
-         $destination_token = User::find($request->mechanic_id)->fbtoken;
+         $destination_token = User::find($request->mechanic_user_id)->fbtoken;
 
          if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
              return response()->json( $this->successStatus);
@@ -240,19 +241,61 @@ class ApiController extends Controller
     public function getAllNotif(Request $request) {
 
 
-        $notifications = Notification::where('principal_id',$request->id)->get()->all();
+        $notifications = Notification::where('recipient_id',$request->id)->get();
 
+
+        foreach ($notifications as $notification){
+            $notification->process_fail = $notification->request_emergency->process_fail;
+            $notification->process_success = $notification->request_emergency->process_success;
+            $notification->is_rate = $notification->request_emergency->is_rate;
+            $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
+            $notification->driver_user_id = $notification->request_emergency->driver_user_id;
+
+            $delay = $notification->delay;
+            $date_start = Carbon::parse($notification->created_at);
+            $date_now =  Carbon::now();
+
+
+            $minutes = 0;
+
+            if (strpos($delay, 'hr') !== false) {
+                $delay = substr($delay,0,-3);
+                $minutes = (int)$delay * 60;
+             }
+            if (strpos($delay, 'min') !== false) {
+                $delay = substr($delay,0,-4);
+                $minutes = (int)$delay;
+            }
+            $date_start->addMinutes( $minutes);
+
+
+            if( $date_start->greaterThan($date_now))
+                $notification->end_time = false;
+
+            else
+               $notification->end_time = true;
+
+
+        }
 
         return response()->json($notifications);
     }
     public function getAllHisto(Request $request) {
 
         if($request->isMechanic == 0)
-            $notifications = Notification::where('principal_id', '!=' ,$request->id)->get()->all();
+            $notifications = Notification::where('recipient_id', '!=' ,$request->id)->get()->all();
         else
-            $notifications = Notification::where('principal_id',$request->id)->get()->all();
+            $notifications = Notification::where('recipient_id',$request->id)->get()->all();
+
+        foreach ($notifications as $notification){
+            $notification->process_fail = $notification->request_emergency->process_fail;
+            $notification->process_success = $notification->request_emergency->process_success;
+            $notification->is_rate = $notification->request_emergency->is_rate;
+            $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
+            $notification->driver_user_id = $notification->request_emergency->driver_user_id;
 
 
+        }
 
         return response()->json($notifications);
     }
@@ -262,9 +305,9 @@ class ApiController extends Controller
 
         $notification =  Notification::find($notif_id);
 
-        $notification->mechanic_name = User::find($notification->mechanic_id)->email;
-        $notification->driver_name = User::find($notification->driver_id)->email;
-        $user =  User::find($notification->mechanic_id);
+        $notification->mechanic_name = User::find($notification->request_emergency->mechanic_user_id)->email;
+        $notification->driver_name = User::find($notification->request_emergency->driver_user_id)->email;
+        $user =  User::find($notification->request_emergency->mechanic_user_id);
 
         $mechanic = Mechanic::where("user_id",$user->id)->first();
 
@@ -272,11 +315,15 @@ class ApiController extends Controller
          $notification->garage_name = $garage->name;
 
         $notification->garage_address = $garage->addresse;
-         $notificationInfos = User::find($notification->driver_id);
+         $notificationInfos = User::find($notification->request_emergency->driver_user_id);
 
 
         $notificationInfos->addHidden(["password","token"]);
         $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
+        $notification->process_success = $requestEmergency->process_success;
+        $notification->process_fail = $requestEmergency->process_fail;
+        $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
+        $notification->driver_user_id = $requestEmergency->driver_user_id;
 
         $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
         $location = Location::find($requestEmergency->location_id);
@@ -299,6 +346,29 @@ class ApiController extends Controller
 
 
         return response()->json($arrayAllData);
+    }
+
+    public function sendProcessStatus(Request $request)
+    {
+        $request_emergency_id = $request->request_emergency_id;
+        $success = $request->success;
+
+
+        $requestEmergency = RequestEmergency::find($request_emergency_id);
+
+
+        if($success == 0){
+            $requestEmergency->process_fail = 1;
+        }
+        if($success == 1){
+            $requestEmergency->process_success = 1;
+
+        }
+
+        $requestEmergency->save();
+
+        return response()->json( $this->successStatus);
+
     }
     public function getRemainingTime(Request $request) {
         $notif_id = $request->notif_id;
@@ -350,42 +420,7 @@ class ApiController extends Controller
         }
 
 
-//        $notification->mechanic_name = User::find($notification->mechanic_id)->email;
-//        $notification->driver_name = User::find($notification->driver_id)->email;
-//        $user =  User::find($notification->mechanic_id);
-//
-//        $mechanic = Mechanic::where("user_id",$user->id)->first();
-//
-//        $garage =  Garage::where("mechanic_id",$mechanic->id)->first();
-//        $notification->garage_name = $garage->name;
-//
-//        $notification->garage_address = $garage->addresse;
-//        $notificationInfos = User::find($notification->driver_id);
-//
-//
-//        $notificationInfos->addHidden(["password","token"]);
-//        $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
-//
-//        $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
-//        $location = Location::find($requestEmergency->location_id);
-//
-//
-//        $arrayDV  = array();
-//        $arrayDV["detailVehicule"] = $vehiculeDetail  ;
-//
-//        $arrayDV["trouble"] =  $requestEmergency->trouble ;
-//        $arrayLoc = array("locations" =>$location) ;
-//        $arrayNotif = array_merge($arrayDV, $arrayLoc,$notification->toArray());
-//
-//        $arrayNotification = array("notifications" =>$arrayNotif) ;
-//
-//
-//
-//        $arrayAllData = array_merge($arrayNotification, $notificationInfos->toArray() );
-//
-//
-//
-//
+
         return response()->json($arrayAllData);
     }
 
@@ -397,26 +432,28 @@ class ApiController extends Controller
 
         $notification = new Notification;
         $notification->status = 1;
-        $notification->driver_id =$request->driver_id;
-        $notification->mechanic_id = $request->mechanic_id;
-        $notification->principal_id = $request->driver_id;
+        $notification->recipient_id = $request->driver_user_id;
         $notification->request_emergency_id = $request->request_emergency_id;
         $notification->date = $request->date;
 
 
-        $driverName = User::where('id', $request->mechanic_id)
+        $driverName = User::where('id', $request->mechanic_user_id)
             ->select('name')
             ->first()->name;
         $notification->body = $driverName." a décliné la demande";
         $notification->save();
 
+        $request_emergency = RequestEmergency::find($request->request_emergency_id);
+        $request_emergency->process_fail = 1;
+        $request_emergency->save();
+
         $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)
-            ->where("principal_id",$request->mechanic_id)
+            ->where("recipient_id",$request->mechanic_user_id)
             ->first();
         $updateNotif->status = 1;
         $updateNotif->save();
 
-        $destination_token = User::find($request->driver_id)->fbtoken;
+        $destination_token = User::find($request->driver_user_id)->fbtoken;
 
         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
             return response()->json( $this->successStatus);
@@ -432,28 +469,28 @@ class ApiController extends Controller
         //this is the user id for both
 
         $notification = new Notification;
-        $notification->driver_id =$request->driver_id;
-        $notification->mechanic_id = $request->mechanic_id;
         $notification->delay = $request->delay;
         $notification->status = 1;
-        $notification->principal_id = $request->driver_id;
+        $notification->recipient_id = $request->driver_user_id;
         $notification->request_emergency_id = $request->request_emergency_id;
         $notification->date = $request->date;
 
-        $driverName = User::where('id', $request->mechanic_id)
+        $driverName = User::where('id', $request->mechanic_user_id)
             ->select('name')
             ->first()->name;
         $notification->body = $driverName." a accepté la demande et sera la dans ".$request->delay;
         $notification->save();
 
+
+
         $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)
-            ->where("principal_id",$request->mechanic_id)
+            ->where("recipient_id",$request->mechanic_user_id)
             ->first();
         $updateNotif->status = 1;
         $updateNotif->save();
 
 
-        $destination_token = User::find($request->driver_id)->fbtoken;
+        $destination_token = User::find($request->driver_user_id)->fbtoken;
 
         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
             return response()->json( $this->successStatus);
@@ -468,24 +505,25 @@ class ApiController extends Controller
         $mechanic = Mechanic::where("user_id",$request->mechanic_id)->first();
 
 
-        $notification = Notification::find($request->notif_id);
-        $notification->is_rate = 1;
-        $notification->save();
+        $request_emergency = RequestEmergency::find($request->request_emergency_id);
+        $request_emergency->is_rate = 1;
+        $request_emergency->save();
 
         $notification_qty = 0;
 
 
         $mechanic->total_rating =  $mechanic->total_rating+$request->rating;
 
-        $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+
+        $request_emergencies = RequestEmergency::where("mechanic_user_id",$mechanic->user->id)
             ->where("is_rate",1)
             ->first();
 
-        if($notifications){
-            $notifications = Notification::where("mechanic_id",$mechanic->user->id)
+        if($request_emergencies){
+            $request_emergencies = RequestEmergency::where("mechanic_user_id",$mechanic->user->id)
                 ->where("is_rate",1)
                 ->get();
-            $notification_qty = count($notifications) + 1;
+            $notification_qty = count($request_emergencies) + 1;
          }
 
         if(!empty($mechanic->rating)){
@@ -506,6 +544,10 @@ class ApiController extends Controller
 
         $mechanic->save();
         return response()->json($this->successStatus);
+    }
+
+    public function getRemainingSeconds($delay){
+
     }
 
 

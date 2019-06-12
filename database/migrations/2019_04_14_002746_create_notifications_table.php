@@ -16,17 +16,13 @@ class CreateNotificationsTable extends Migration
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
             $table->Integer('request_emergency_id')->unsigned()->nullable();
-            $table->Integer('mechanic_id')->unsigned()->nullable();
-            $table->Integer('driver_id')->unsigned()->nullable();
             $table->String('body')->nullable();
             $table->string('title')->nullable();
-            $table->Integer('principal_id')->unsigned()->nullable();
             $table->string('date')->nullable();
             $table->String('delay')->nullable();
             $table->Integer('read')->default(0);
             $table->Integer('status')->default(0);
-
-
+            $table->Integer('recipient_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

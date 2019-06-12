@@ -19,7 +19,7 @@ class Notification extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["is_rate","mechanic_id"];
+    protected $fillable = ["mechanic_id"];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -34,6 +34,10 @@ class Notification extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
+
+    public function request_emergency() {
+        return $this->belongsTo(RequestEmergency::class);
+    }
 
     /*
     |--------------------------------------------------------------------------
