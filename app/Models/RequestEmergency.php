@@ -35,7 +35,7 @@ class RequestEmergency extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function notification() {
+    public function notifications() {
         return $this->hasMany(Notification::class);
     }
 
