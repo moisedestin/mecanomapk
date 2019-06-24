@@ -59,7 +59,7 @@
                         }
     </style>
 </head>
-<body class="container">
+<body >
 <p><strong>Infos</strong></p>
 <ul>
     <li><strong><strong>A propos</strong></strong></li>
@@ -91,7 +91,7 @@
 <p>- Vous devez payer en esp&egrave;ces &agrave; l'agent, une fois qu'il est sur place.</p>
 <p>- Apr&egrave;s chaque op&eacute;ration, vous recevrez une notification sollicitant votre avis pour nous aider &agrave; am&eacute;liorer l&rsquo;exp&eacute;rience Mecano'm. </p>
 <p>Remarque: un usage continu du GPS en arri&egrave;re-plan peut faire baisser de mani&egrave;re importante la dur&eacute;e de vie de la batterie de votre t&eacute;l&eacute;phone.</p>
-<p><br /><br /></p>
+<p><br /> </p>
 <p></p>
 <p><strong>TERMES ET CONDITIONS D&acute;UTILISATION</strong></p>
 <ul>
@@ -119,19 +119,19 @@
     <li>Vous acceptez que nous puissions t&eacute;l&eacute;charger et installer les mises &agrave; jour du service sur votre appareil.</li>
     <li>Nous pouvons refuser de vous fournir ou d'arr&ecirc;ter de vous fournir tout ou partie du Service (y compris de r&eacute;silier ou de d&eacute;sactiver votre compte) imm&eacute;diatement pour prot&eacute;ger notre communaut&eacute; ou nos services, ou si vous cr&eacute;ez un risque ou une exposition l&eacute;gale pour nous, enfreignez les pr&eacute;sentes Conditions d'utilisation ou si nous sommes autoris&eacute;s ou oblig&eacute;s de le faire par la loi. Si nous prenons des mesures pour d&eacute;sactiver ou r&eacute;silier votre compte, nous vous en informerons le cas &eacute;ch&eacute;ant. Si vous pensez que votre compte a &eacute;t&eacute; ferm&eacute; par erreur, ou si vous souhaitez d&eacute;sactiver ou supprimer d&eacute;finitivement votre compte, contactez-nous directement.</li>
 </ul>
-<p><br /> </p>
+<p> </p>
 <ul>
     <li><strong><strong>Partage de responsabilit&eacute; et gestion de diff&eacute;rends</strong></strong></li>
 </ul>
 <p>Nous prenons toutes les mesures pour fournir un service s&eacute;curis&eacute; qui fonctionnera parfaitement tout le temps. Toutefois, nous ne sommes pas responsables de leurs (ou de vos) actions ou de leur comportement (en ligne ou hors ligne). Nous ne sommes &eacute;galement pas responsables des services et des fonctionnalit&eacute;s propos&eacute;s par d&rsquo;autres personnes ou compagnies, m&ecirc;me si vous y acc&eacute;dez via notre service.</p>
 <p>Notre responsabilit&eacute; pour tout ce qui se passe sur le Service (&eacute;galement appel&eacute; &laquo;responsabilit&eacute;&raquo;) est limit&eacute;e autant que la loi le permet. S'il y a un probl&egrave;me avec notre service, nous ne pouvons pas savoir tous les impacts possibles. </p>
 <p>Tout litige ou diff&eacute;rend sera g&eacute;r&eacute; &agrave; l&acute;amiable entre les parties concern&eacute;es. Dans le cas o&ugrave; une entente n&acute;est pas trouv&eacute;e, vous pouvez porter votre r&eacute;clamation aupr&egrave;s de tout tribunal comp&eacute;tent pour trouver la solution.</p>
-<p><br /> </p>
+<p></p>
 <ul>
     <li><strong><strong>Autres conditions</strong></strong></li>
 </ul>
 <p>Nous appr&eacute;cions toujours les commentaires ou autres suggestions, mais nous pouvons les utiliser sans aucune restriction ni obligation de vous d&eacute;dommager, et nous n&rsquo;avons aucune obligation de les garder confidentielles.</p>
-<p><br /> </p>
+<p>  </p>
 <ul>
     <li><strong><strong>Mise &agrave; jour de ces conditions</strong></strong></li>
 </ul>
