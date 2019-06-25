@@ -38,7 +38,26 @@ class MechanicCrudController extends CrudController
 
         // TODO: remove setFromDb() and manually define Fields and Columns
 //        $this->crud->setFromDb();
-        $this->crud->setColumns(['phone1','phone2','availability']);
+        $this->crud->setColumns(['phone1','phone2','availability','image','rating']);
+
+        $this->crud->setColumnDetails('image', [
+            'label' => "Image", // Table column heading
+            'type' => 'image',
+            'prefix' => 'storage/'
+        ]);
+
+        $this->crud->modifyField('image',[ // image
+            'label' => "Mechanic Image",
+            'name' => "image",
+            'type' => 'image',
+            'upload' => true,
+            'crop' => true, // set to true to allow cropping, false to disable
+            'aspect_ratio' => 2, // ommit or set to 0 to allow any aspect ratio
+            // 'disk' => 's3_bucket', // in case you need to show images from a different disk
+            // 'prefix' => 'uploads/images/profile_pictures/' // in case you only store the filename in the database, this text will be prepended to the database value
+            'prefix' => 'storage/',
+
+        ]);
 
         $this->crud->addColumn([
             'name' => 'email',
@@ -54,7 +73,7 @@ class MechanicCrudController extends CrudController
             'label'=>'Ful Name',
             'type'=>'text'
 
-        ]);
+        ],'create');
 
         $this->crud->addField([
             'name'=>'gender',
@@ -84,7 +103,7 @@ class MechanicCrudController extends CrudController
             'label'=>'Email',
             'type'=>'email'
 
-        ]);
+        ],'create');
 
         $this->crud->addField([
             'name'=>'phone1',
@@ -105,14 +124,27 @@ class MechanicCrudController extends CrudController
             'label'=>'Nom du garage',
             'type'=>'text'
 
-        ]);
+        ],'create');
 
         $this->crud->addField([
             'name'=>'address',
             'label'=>'Addresse',
             'type'=>'text'
 
-        ]);
+        ],'create');
+
+        $this->crud->addField([
+            'name'=>'rating',
+            'label'=>'Rating',
+
+            'attributes' => [
+                "step" => "any",
+                "max" => 5,
+                "min" => 0,
+            ],
+            'type'=>'number'
+
+        ],'update');
 
         //todo:: services
         $this->crud->addField([ // select_from_array
@@ -120,8 +152,10 @@ class MechanicCrudController extends CrudController
             'label' => "Services",
             'type' => 'select2_from_array',
             'options' => [
-                "One" => "One",
-                "two" => "Two"
+                "Suspension" => "Suspension",
+                "Electricite" => "Électricité",
+                "Remorquage" => "Remorquage",
+                "Climatisation" => "Climatisation"
             ],
             'allows_null' => false,
             'default' => 'one',
@@ -199,6 +233,11 @@ class MechanicCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
+
+
+        $request['services'] = \GuzzleHttp\json_encode($request->services);
+
+
         // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
         // your additional operations after save here

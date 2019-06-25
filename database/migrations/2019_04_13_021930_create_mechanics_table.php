@@ -22,6 +22,7 @@ class CreateMechanicsTable extends Migration
             $table->string('phone1')->nullable();
             $table->string('phone2')->nullable();
             $table->string('availability')->nullable(); //tranche de disponibilité
+            $table->string('image')->nullable();
             $table->text('services')->nullable();
             $table->smallInteger('sexe')->nullable();
             $table->smallInteger('haveScanner')->nullable()->default(\App\Models\Mechanic::HAVENOt_SCANNER);
