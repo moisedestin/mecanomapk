@@ -38,6 +38,9 @@ class LocationCrudController extends CrudController
 
         $this->crud->removeButton('delete');
 
+        $this->crud->orderBy('created_at', 'desc');
+
+
 
         // add asterisk for fields that are required in LocationRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');

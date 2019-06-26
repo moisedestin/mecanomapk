@@ -36,6 +36,9 @@ class DriverCrudController extends CrudController
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setFromDb();
 
+        $this->crud->orderBy('created_at', 'desc');
+
+
         $this->crud->removeButton('delete');
 
 

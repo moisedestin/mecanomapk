@@ -123,6 +123,9 @@ class RequestEmergencyCrudController extends CrudController
             ]
         );
 
+        $this->crud->orderBy('created_at', 'desc');
+
+
         // add asterisk for fields that are required in RequestEmergencyRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
         $this->crud->setRequiredFields(UpdateRequest::class, 'edit');

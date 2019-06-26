@@ -181,8 +181,11 @@ class MechanicCrudController extends CrudController
             'function_name' => 'getUserName'
         ])->beforeColumn('phone1');
 
+        $this->crud->orderBy('created_at', 'desc');
 
-         $this->crud->removeColumn('user_id'); // remove a column from the stack
+
+
+        $this->crud->removeColumn('user_id'); // remove a column from the stack
         $this->crud->removeButton('delete');
 
 

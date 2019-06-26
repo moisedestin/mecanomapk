@@ -38,6 +38,9 @@ class GarageCrudController extends CrudController
 
         $this->crud->removeButton('delete');
 
+        $this->crud->orderBy('created_at', 'desc');
+
+
 
         // add asterisk for fields that are required in GarageRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');
