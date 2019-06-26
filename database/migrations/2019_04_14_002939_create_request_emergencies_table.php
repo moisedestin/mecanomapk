@@ -23,6 +23,7 @@ class CreateRequestEmergenciesTable extends Migration
             $table->Integer('mechanic_user_id')->unsigned()->nullable();
             $table->Integer('driver_user_id')->unsigned()->nullable();
             $table->Integer('is_rate')->unsigned()->default(0);
+            $table->boolean('is_mechanic_agree')->default(false);
             $table->timestamps();
         });
     }

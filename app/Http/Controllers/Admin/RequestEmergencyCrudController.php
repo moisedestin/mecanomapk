@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\User;
 use Backpack\CRUD\app\Http\Controllers\CrudController;
 
 // VALIDATION: change the requests to match your own file names if you need form validation
@@ -24,7 +25,7 @@ class RequestEmergencyCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
         $this->crud->setModel('App\Models\RequestEmergency');
-        $this->crud->setRoute(config('backpack.base.route_prefix') . '/requestemergency');
+        $this->crud->setRoute(config('backpack.base.route_prefix') . '/request_emergency');
         $this->crud->setEntityNameStrings('requestemergency', 'request_emergencies');
 
         /*
@@ -35,6 +36,92 @@ class RequestEmergencyCrudController extends CrudController
 
         // TODO: remove setFromDb() and manually define Fields and Columns
         $this->crud->setFromDb();
+
+         $this->crud->removeAllButtons();
+
+
+        $this->crud->setColumnDetails('is_rate',
+            [
+                'label' => 'Is Rate',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if($entry->is_rate == 0)
+                        return  'No';
+                    else
+                        return  'Yes';
+
+                }
+            ]
+        );
+
+        $this->crud->setColumnDetails('mechanic_user_id',
+            [
+                'label' => 'Mechanician',
+                'type' => 'model_function',
+                'function_name' =>  'getMechanician'
+            ]
+        );
+
+        $this->crud->setColumnDetails('driver_user_id',
+            [
+                'label' => 'Driver',
+                'type' => 'model_function',
+                'function_name' =>  'getDriver'
+            ]
+        );
+
+        $this->crud->setColumnDetails('driver_user_id',
+            [
+                'label' => 'Driver',
+                'type' => 'closure',
+                'function' => function($entry) {
+
+                    return User::find($entry->driver_user_id)->email;
+                }
+            ]
+        );
+
+        $this->crud->setColumnDetails('process_success',
+            [
+                'label' => 'Process Sucess',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if($entry->process_success == 0)
+                        return  '<span class="label label-default">No</span>';
+                    else
+                        return  '<span class="label label-success">Yes</span>';
+
+                }
+            ]
+        );
+
+        $this->crud->setColumnDetails('process_fail',
+            [
+                'label' => 'Process Fail',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if($entry->process_fail == 0)
+                        return  '<span class="label label-default">No</span>';
+                    else
+                        return  '<span class="label label-danger">Yes</span>';
+
+                }
+            ]
+        );
+
+        $this->crud->setColumnDetails('is_mechanic_agree',
+            [
+                'label' => 'Is Mechanician Agree',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    if(!$entry->is_mechanic_agree)
+                        return  '<span class="label label-default">No</span>';
+                    else
+                        return  '<span class="label label-success">Yes</span>';
+
+                }
+            ]
+        );
 
         // add asterisk for fields that are required in RequestEmergencyRequest
         $this->crud->setRequiredFields(StoreRequest::class, 'create');

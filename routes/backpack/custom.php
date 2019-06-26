@@ -15,4 +15,5 @@ Route::group([
     CRUD::resource('driver', 'DriverCrudController');
     CRUD::resource('garage', 'GarageCrudController');
     CRUD::resource('location', 'LocationCrudController');
+    CRUD::resource('request_emergency', 'RequestEmergencyCrudController');
 }); // this should be the absolute last line of this file
