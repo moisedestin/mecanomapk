@@ -40,6 +40,18 @@ class RequestEmergencyCrudController extends CrudController
          $this->crud->removeAllButtons();
 
 
+        $this->crud->addColumn(
+            [
+                'label' => 'Date',
+                'type' => 'closure',
+                'function' => function($entry) {
+                    return $entry->created_at;
+
+                }
+            ]
+        )->beforeColumn('trouble');
+
+
         $this->crud->setColumnDetails('is_rate',
             [
                 'label' => 'Is Rate',
