@@ -21,6 +21,8 @@ class Vehicle extends Model
     // protected $guarded = ['id'];
     protected $fillable = [
         'model',
+        'mark',
+        'color',
         'country',
         'year',
         'transmission',
