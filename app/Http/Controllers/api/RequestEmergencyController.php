@@ -94,7 +94,7 @@ class RequestEmergencyController extends Controller
 //            return response()->json( 405);
 
 
-         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
+         if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
              return response()->json( $this->successStatus);
 
          }
