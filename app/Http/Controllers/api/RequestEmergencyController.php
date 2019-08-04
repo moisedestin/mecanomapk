@@ -9,6 +9,7 @@ use App\Models\Notification;
 use App\Models\RequestEmergency;
 use App\Models\Vehicle;
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -203,7 +204,7 @@ class RequestEmergencyController extends Controller
 
                 $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
                     return response()->json( $this->successStatus);
 
                 }
@@ -217,7 +218,7 @@ class RequestEmergencyController extends Controller
 
                 $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
                     return response()->json( $this->successStatus);
 
                 }
@@ -246,7 +247,7 @@ class RequestEmergencyController extends Controller
 
                 $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
                     return response()->json( $this->successStatus);
 
                 }
@@ -264,5 +265,145 @@ class RequestEmergencyController extends Controller
 
     }
 
+
+    public function getEmergenciesMechanic(Request $request) {
+
+
+        $request_emergencies = RequestEmergency::where('mechanic_user_id',$request->id)
+            ->where('is_mechanic_agree',true)
+            ->where('process_success' , false)
+            ->where('process_fail' , false)
+            ->orderByDesc('created_at')
+            ->get();
+
+
+
+        $array_final_notif = [];
+
+        foreach($request_emergencies as $request_emergency){
+            foreach ($request_emergency->notifications as $notification){
+                $notification->process_fail = $notification->request_emergency->process_fail;
+                $notification->process_success = $notification->request_emergency->process_success;
+                $notification->is_rate = $notification->request_emergency->is_rate;
+                $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
+                $notification->driver_user_id = $notification->request_emergency->driver_user_id;
+
+                $delay = $notification->delay;
+                $date_start = Carbon::parse($notification->created_at);
+                $date_now =  Carbon::now();
+
+
+                $minutes = 0;
+                $seconds_total = 0;
+
+                if (strpos($delay, 'hr') !== false) {
+                    $delay = substr($delay,0,-3);
+                    $minutes = (int)$delay * 60;
+                    $seconds_total = $minutes * 60;
+
+                }
+                if (strpos($delay, 'min') !== false) {
+                    $delay = substr($delay,0,-4);
+                    $minutes = (int)$delay;
+                    $seconds_total = $minutes * 60;
+
+                }
+                $date_start->addMinutes( $minutes);
+
+
+                if( $date_start->greaterThan($date_now)){
+                    $date_diff = $date_start->diff($date_now);
+                    $minutes = $date_diff->days * 24 * 60;
+                    $minutes += $date_diff->h * 60;
+                    $minutes += $date_diff->i;
+                    $seconds_remaining = $date_diff->s + ($minutes * 60);
+                    $notification->end_time = false;
+                    $notification->seconds_remaining = $seconds_remaining;
+                    $notification->seconds_total = $seconds_total;
+                    array_push($array_final_notif,$notification);
+                }
+
+                else{
+
+                    $notification->end_time = true;
+                }
+            }
+        }
+
+
+
+
+        return response()->json($array_final_notif);
+    }
+
+    public function getEmergenciesDriver(Request $request) {
+
+
+        $request_emergencies = RequestEmergency::where('driver_user_id',$request->id)
+            ->where('is_mechanic_agree',true)
+            ->where('process_success' , false)
+            ->where('process_fail' , false)
+            ->orderByDesc('created_at')
+            ->get();
+
+
+
+        $array_final_notif = [];
+
+        foreach($request_emergencies as $request_emergency){
+            foreach ($request_emergency->notifications as $notification){
+                $notification->process_fail = $notification->request_emergency->process_fail;
+                $notification->process_success = $notification->request_emergency->process_success;
+                $notification->is_rate = $notification->request_emergency->is_rate;
+                $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
+                $notification->driver_user_id = $notification->request_emergency->driver_user_id;
+
+                $delay = $notification->delay;
+                $date_start = Carbon::parse($notification->created_at);
+                $date_now =  Carbon::now();
+
+
+                $minutes = 0;
+                $seconds_total = 0;
+
+                if (strpos($delay, 'hr') !== false) {
+                    $delay = substr($delay,0,-3);
+                    $minutes = (int)$delay * 60;
+                    $seconds_total = $minutes * 60;
+
+                }
+                if (strpos($delay, 'min') !== false) {
+                    $delay = substr($delay,0,-4);
+                    $minutes = (int)$delay;
+                    $seconds_total = $minutes * 60;
+
+                }
+                $date_start->addMinutes( $minutes);
+
+
+                if( $date_start->greaterThan($date_now)){
+                    $date_diff = $date_start->diff($date_now);
+                    $minutes = $date_diff->days * 24 * 60;
+                    $minutes += $date_diff->h * 60;
+                    $minutes += $date_diff->i;
+                    $seconds_remaining = $date_diff->s + ($minutes * 60);
+                    $notification->end_time = false;
+                    $notification->seconds_remaining = $seconds_remaining;
+                    $notification->seconds_total = $seconds_total;
+                    array_push($array_final_notif,$notification);
+                }
+
+                else{
+
+                    $notification->end_time = true;
+                }
+            }
+        }
+
+
+
+
+        return response()->json($array_final_notif);
+    }
 
 }
