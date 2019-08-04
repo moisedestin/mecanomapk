@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/Notification.php" afterPath="$PROJECT_DIR$/app/Models/Notification.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Models/RequestEmergency.php" afterPath="$PROJECT_DIR$/app/Models/RequestEmergency.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/auth.php" afterPath="$PROJECT_DIR$/config/auth.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/api.php" afterPath="$PROJECT_DIR$/routes/api.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -83,7 +89,7 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="mechanics" />
+        <option name="myItemId" value="notifications" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -91,53 +97,100 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="mecanomhackaton.request_emergencies" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.request_emergencies">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
+            <state relative-caret-position="196">
+              <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
               <folding>
-                <element signature="e#522#1258#0#PHP" expanded="false" />
-                <element signature="e#1264#2208#0#PHP" expanded="false" />
-                <element signature="e#2214#2931#0#PHP" expanded="false" />
-                <element signature="e#2937#3160#0#PHP" expanded="false" />
-                <element signature="e#3465#3925#0#PHP" expanded="false" />
-                <element signature="e#3930#5216#0#PHP" expanded="false" />
-                <element signature="e#5222#7172#0#PHP" expanded="false" />
-                <element signature="e#13991#14861#0#PHP" expanded="false" />
-                <element signature="e#14866#16829#0#PHP" expanded="false" />
-                <element signature="e#16835#17349#0#PHP" expanded="false" />
-                <element signature="e#17354#17622#0#PHP" expanded="false" />
-                <element signature="e#17629#18900#0#PHP" expanded="false" />
-                <element signature="e#18906#20393#0#PHP" expanded="false" />
+                <element signature="e#45#67#0#PHP" expanded="true" />
+                <element signature="e#560#1296#0#PHP" expanded="false" />
+                <element signature="e#1302#2246#0#PHP" expanded="false" />
+                <element signature="e#2254#2477#0#PHP" expanded="false" />
+                <element signature="e#2484#5028#0#PHP" expanded="false" />
+                <element signature="e#5034#7573#0#PHP" expanded="false" />
+                <element signature="e#7579#9479#0#PHP" expanded="false" />
+                <element signature="e#9487#10766#0#PHP" expanded="false" />
+                <element signature="e#10772#12267#0#PHP" expanded="false" />
+                <element signature="e#12273#13682#0#PHP" expanded="false" />
+                <element signature="e#13688#13739#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mecanomhackaton.locations" pinned="false" current-in-tab="false">
-        <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.locations">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
+      <file leaf-file-name="NotificationController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="500">
+              <caret line="131" column="0" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="131" selection-end-column="0" />
+              <folding>
+                <element signature="e#44#66#0#PHP" expanded="true" />
+                <element signature="e#393#1835#0#PHP" expanded="false" />
+                <element signature="e#1841#2878#0#PHP" expanded="false" />
+                <element signature="e#4851#6205#0#PHP" expanded="false" />
+              </folding>
             </state>
           </provider>
-          <provider editor-type-id="text-editor">
+        </entry>
+      </file>
+      <file leaf-file-name="laravel-2019-08-03.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-08-03.log">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4472">
+              <caret line="388" column="186" lean-forward="false" selection-start-line="388" selection-start-column="128" selection-end-line="388" selection-end-column="186" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Notification.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="320">
+              <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="60" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/config/auth.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="656">
+              <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MechanicController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-668">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding>
+                <element signature="e#2660#3129#0#PHP" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RequestEmergencyController.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="167">
+              <caret line="148" column="53" lean-forward="false" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+              <folding>
+                <element signature="e#44#66#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="laravel-2019-08-04.log" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-08-04.log">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
@@ -145,12 +198,16 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sidebar_content.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/vendor/backpack/base/inc/sidebar_content.blade.php">
+      <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
-              <folding />
+            <state relative-caret-position="276">
+              <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <folding>
+                <marker date="1564880856146" expanded="true" signature="542:2007" ph="..." />
+                <marker date="1564880856146" expanded="true" signature="543:563" ph="..." />
+                <marker date="1564880856146" expanded="true" signature="967:2006" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,62 +215,8 @@
       <file leaf-file-name="RequestEmergency.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/RequestEmergency.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-              <folding>
-                <element signature="e#30#43#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RequestEmergencyCrudController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
-              <folding>
-                <element signature="e#46#59#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MechanicCrudController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="61">
-              <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LocationCrudController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocationCrudController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="264">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GarageCrudController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GarageCrudController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DriverCrudController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DriverCrudController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state relative-caret-position="-220">
+              <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="33" />
               <folding />
             </state>
           </provider>
@@ -223,11 +226,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>laravel</find>
-      <find>grava</find>
-      <find>avatar</find>
-      <find>user</find>
-      <find>box</find>
       <find>update a</find>
       <find>da</find>
       <find>driver</find>
@@ -242,6 +240,22 @@
       <find>mechanicin</find>
       <find>ogin</find>
       <find>mechaniclo</find>
+      <find>getallHis</find>
+      <find>full</find>
+      <find>send</find>
+      <find>sendprocess</find>
+      <find>savenotif</find>
+      <find>getallmaker</find>
+      <find>$incomming_loc</find>
+      <find>mechanicco</find>
+      <find>push</find>
+      <find>function pushnotification</find>
+      <find>pushnotifi</find>
+      <find>getmechan</find>
+      <find>remainingtime</find>
+      <find>request</find>
+      <find>getEmergenciesMechanic</find>
+      <find>remainingTime</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -269,11 +283,8 @@
         <option value="$PROJECT_DIR$/app/Models/Driver.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_065407_add_is_rate_to_notifications.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php" />
-        <option value="$PROJECT_DIR$/app/Models/Notification.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_002746_create_notifications_table.php" />
-        <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/resources/views/infos.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_13_021930_create_mechanics_table.php" />
@@ -282,12 +293,22 @@
         <option value="$PROJECT_DIR$/routes/backpack/custom.php" />
         <option value="$PROJECT_DIR$/resources/views/vendor/backpack/base/inc/sidebar_content.blade.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_002939_create_request_emergencies_table.php" />
-        <option value="$PROJECT_DIR$/app/Models/RequestEmergency.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/LocationCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/GarageCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/DriverCrudController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel-2019-07-23.log" />
+        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+        <option value="$PROJECT_DIR$/config/auth.php" />
+        <option value="$PROJECT_DIR$/app/Models/Notification.php" />
+        <option value="$PROJECT_DIR$/storage/logs/laravel-2019-08-03.log" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php" />
+        <option value="$PROJECT_DIR$/routes/api.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
+        <option value="$PROJECT_DIR$/app/Models/RequestEmergency.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" />
       </list>
     </option>
   </component>
@@ -342,7 +363,43 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="routes" />
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="logs" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storage" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -359,10 +416,6 @@
               <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backpack" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -374,111 +427,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
+              <option name="myItemId" value="routes" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="backpack" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="inc" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="vendor" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="backpack" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="base" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="mecanom_hackaton" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -529,6 +482,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="migrations" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mecanom_hackaton" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -676,14 +643,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../membershipproject" />
-    <property name="SearchEverywhereHistoryKey" value="Appse&#9;null&#9;null&#10;ServiceProvider&#9;null&#9;null&#10;appserv&#9;null&#9;null" />
+    <property name="SearchEverywhereHistoryKey" value="authse&#9;null&#9;null&#10;Appse&#9;null&#9;null&#10;ServiceProvider&#9;null&#9;null&#10;appserv&#9;null&#9;null" />
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../linuxbrew/.linuxbrew/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
     <property name="js-jscs-nodeInterpreter" value="$PROJECT_DIR$/../../../linuxbrew/.linuxbrew/bin/node" />
@@ -784,25 +751,30 @@
       <workItem from="1560029187084" duration="509000" />
       <workItem from="1560034013310" duration="32243000" />
       <workItem from="1560453336480" duration="19656000" />
-      <workItem from="1560975312514" duration="22715000" />
+      <workItem from="1560975312514" duration="25111000" />
+      <workItem from="1562376127469" duration="1115000" />
+      <workItem from="1563253178676" duration="590000" />
+      <workItem from="1563462596614" duration="17451000" />
+      <workItem from="1564185177331" duration="255000" />
+      <workItem from="1564818595988" duration="14207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163461000" />
+    <option name="totallyTimeSpent" value="199475000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3237519" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.35022694" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1633888" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33585477" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27876824" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27876824" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -826,39 +798,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_13_230117_create_locations_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="22" column="33" lean-forward="false" selection-start-line="22" selection-start-column="33" selection-end-line="22" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/606e88c2-0f37-4c85-b10e-594e44d23277/mecanomhackaton.locations" />
-    <entry file="file://$PROJECT_DIR$/database/migrations/2019_04_14_002309_create_vehicles_table.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="329">
-          <caret line="24" column="33" lean-forward="false" selection-start-line="24" selection-start-column="33" selection-end-line="24" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Garage.php" />
-    <entry file="file://$PROJECT_DIR$/app/Models/Location.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="22" column="4" lean-forward="false" selection-start-line="22" selection-start-column="4" selection-end-line="24" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/606e88c2-0f37-4c85-b10e-594e44d23277/mecanomhackaton.mechanics" />
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/606e88c2-0f37-4c85-b10e-594e44d23277/mecanomhackaton.request_emergencies" />
     <entry file="dbDummy://dbtable:/153539fb/606e88c2-0f37-4c85-b10e-594e44d23277/mecanomhackaton.notifications" />
     <entry file="dbDummy://dbtable:/153539fb/606e88c2-0f37-4c85-b10e-594e44d23277/mecanomhackaton.garages" />
     <entry file="file://$PROJECT_DIR$/app/Models/Garage.php">
@@ -894,7 +833,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -926,23 +864,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.notifications">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
           <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -950,7 +875,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -958,7 +882,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
           <caret line="24" column="68" lean-forward="false" selection-start-line="24" selection-start-column="68" selection-end-line="24" selection-end-column="68" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -966,7 +889,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="79" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,7 +896,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -982,198 +903,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-          <folding>
-            <element signature="e#866#874#0#HTML" expanded="false" />
-            <element signature="e#880#888#0#HTML" expanded="false" />
-            <element signature="e#909#917#0#HTML" expanded="false" />
-            <element signature="e#957#965#0#HTML" expanded="false" />
-            <element signature="e#987#995#0#HTML" expanded="false" />
-            <element signature="e#997#1005#0#HTML" expanded="false" />
-            <element signature="e#1010#1018#0#HTML" expanded="false" />
-            <element signature="e#1031#1039#0#HTML" expanded="false" />
-            <element signature="e#1052#1060#0#HTML" expanded="false" />
-            <element signature="e#1066#1074#0#HTML" expanded="false" />
-            <element signature="e#1076#1084#0#HTML" expanded="false" />
-            <element signature="e#1093#1101#0#HTML" expanded="false" />
-            <element signature="e#1113#1121#0#HTML" expanded="false" />
-            <element signature="e#1171#1179#0#HTML" expanded="false" />
-            <element signature="e#1240#1246#0#HTML" expanded="false" />
-            <element signature="e#1284#1292#0#HTML" expanded="false" />
-            <element signature="e#1297#1305#0#HTML" expanded="false" />
-            <element signature="e#1317#1325#0#HTML" expanded="false" />
-            <element signature="e#1326#1334#0#HTML" expanded="false" />
-            <element signature="e#1343#1350#0#HTML" expanded="false" />
-            <element signature="e#1381#1389#0#HTML" expanded="false" />
-            <element signature="e#1398#1405#0#HTML" expanded="false" />
-            <element signature="e#1464#1472#0#HTML" expanded="false" />
-            <element signature="e#1509#1517#0#HTML" expanded="false" />
-            <element signature="e#1532#1540#0#HTML" expanded="false" />
-            <element signature="e#1553#1561#0#HTML" expanded="false" />
-            <element signature="e#1567#1575#0#HTML" expanded="false" />
-            <element signature="e#1638#1646#0#HTML" expanded="false" />
-            <element signature="e#1654#1662#0#HTML" expanded="false" />
-            <element signature="e#1671#1679#0#HTML" expanded="false" />
-            <element signature="e#2029#2037#0#HTML" expanded="false" />
-            <element signature="e#2094#2102#0#HTML" expanded="false" />
-            <element signature="e#2153#2161#0#HTML" expanded="false" />
-            <element signature="e#2262#2270#0#HTML" expanded="false" />
-            <element signature="e#2299#2307#0#HTML" expanded="false" />
-            <element signature="e#2363#2371#0#HTML" expanded="false" />
-            <element signature="e#2409#2417#0#HTML" expanded="false" />
-            <element signature="e#2549#2557#0#HTML" expanded="false" />
-            <element signature="e#2580#2588#0#HTML" expanded="false" />
-            <element signature="e#2628#2636#0#HTML" expanded="false" />
-            <element signature="e#2650#2658#0#HTML" expanded="false" />
-            <element signature="e#2706#2714#0#HTML" expanded="false" />
-            <element signature="e#2736#2744#0#HTML" expanded="false" />
-            <element signature="e#2838#2846#0#HTML" expanded="false" />
-            <element signature="e#2875#2883#0#HTML" expanded="false" />
-            <element signature="e#2914#2922#0#HTML" expanded="false" />
-            <element signature="e#2938#2945#0#HTML" expanded="false" />
-            <element signature="e#3050#3058#0#HTML" expanded="false" />
-            <element signature="e#3073#3081#0#HTML" expanded="false" />
-            <element signature="e#3123#3131#0#HTML" expanded="false" />
-            <element signature="e#3223#3231#0#HTML" expanded="false" />
-            <element signature="e#3283#3290#0#HTML" expanded="false" />
-            <element signature="e#3357#3364#0#HTML" expanded="false" />
-            <element signature="e#3458#3466#0#HTML" expanded="false" />
-            <element signature="e#3468#3476#0#HTML" expanded="false" />
-            <element signature="e#3482#3489#0#HTML" expanded="false" />
-            <element signature="e#3600#3608#0#HTML" expanded="false" />
-            <element signature="e#3679#3687#0#HTML" expanded="false" />
-            <element signature="e#3721#3729#0#HTML" expanded="false" />
-            <element signature="e#3730#3738#0#HTML" expanded="false" />
-            <element signature="e#3758#3766#0#HTML" expanded="false" />
-            <element signature="e#3812#3820#0#HTML" expanded="false" />
-            <element signature="e#3864#3872#0#HTML" expanded="false" />
-            <element signature="e#3920#3928#0#HTML" expanded="false" />
-            <element signature="e#3961#3969#0#HTML" expanded="false" />
-            <element signature="e#3989#3997#0#HTML" expanded="false" />
-            <element signature="e#4008#4015#0#HTML" expanded="false" />
-            <element signature="e#4052#4060#0#HTML" expanded="false" />
-            <element signature="e#4064#4072#0#HTML" expanded="false" />
-            <element signature="e#4124#4132#0#HTML" expanded="false" />
-            <element signature="e#4143#4151#0#HTML" expanded="false" />
-            <element signature="e#4229#4237#0#HTML" expanded="false" />
-            <element signature="e#4240#4248#0#HTML" expanded="false" />
-            <element signature="e#4256#4263#0#HTML" expanded="false" />
-            <element signature="e#4266#4274#0#HTML" expanded="false" />
-            <element signature="e#4340#4348#0#HTML" expanded="false" />
-            <element signature="e#4382#4390#0#HTML" expanded="false" />
-            <element signature="e#4410#4418#0#HTML" expanded="false" />
-            <element signature="e#4452#4460#0#HTML" expanded="false" />
-            <element signature="e#4461#4469#0#HTML" expanded="false" />
-            <element signature="e#4537#4544#0#HTML" expanded="false" />
-            <element signature="e#4618#4626#0#HTML" expanded="false" />
-            <element signature="e#4693#4701#0#HTML" expanded="false" />
-            <element signature="e#4779#4787#0#HTML" expanded="false" />
-            <element signature="e#4865#4873#0#HTML" expanded="false" />
-            <element signature="e#4899#4907#0#HTML" expanded="false" />
-            <element signature="e#4933#4940#0#HTML" expanded="false" />
-            <element signature="e#5002#5010#0#HTML" expanded="false" />
-            <element signature="e#5121#5129#0#HTML" expanded="false" />
-            <element signature="e#5156#5164#0#HTML" expanded="false" />
-            <element signature="e#5345#5353#0#HTML" expanded="false" />
-            <element signature="e#5374#5381#0#HTML" expanded="false" />
-            <element signature="e#5387#5395#0#HTML" expanded="false" />
-            <element signature="e#5400#5408#0#HTML" expanded="false" />
-            <element signature="e#5421#5429#0#HTML" expanded="false" />
-            <element signature="e#5468#5476#0#HTML" expanded="false" />
-            <element signature="e#5542#5550#0#HTML" expanded="false" />
-            <element signature="e#5675#5682#0#HTML" expanded="false" />
-            <element signature="e#5690#5698#0#HTML" expanded="false" />
-            <element signature="e#5721#5729#0#HTML" expanded="false" />
-            <element signature="e#5780#5788#0#HTML" expanded="false" />
-            <element signature="e#5904#5912#0#HTML" expanded="false" />
-            <element signature="e#5963#5971#0#HTML" expanded="false" />
-            <element signature="e#6000#6008#0#HTML" expanded="false" />
-            <element signature="e#6021#6029#0#HTML" expanded="false" />
-            <element signature="e#6049#6057#0#HTML" expanded="false" />
-            <element signature="e#6147#6155#0#HTML" expanded="false" />
-            <element signature="e#6187#6195#0#HTML" expanded="false" />
-            <element signature="e#6252#6260#0#HTML" expanded="false" />
-            <element signature="e#6376#6384#0#HTML" expanded="false" />
-            <element signature="e#6444#6452#0#HTML" expanded="false" />
-            <element signature="e#6475#6483#0#HTML" expanded="false" />
-            <element signature="e#6527#6535#0#HTML" expanded="false" />
-            <element signature="e#6549#6557#0#HTML" expanded="false" />
-            <element signature="e#6623#6631#0#HTML" expanded="false" />
-            <element signature="e#6659#6667#0#HTML" expanded="false" />
-            <element signature="e#6820#6828#0#HTML" expanded="false" />
-            <element signature="e#6850#6858#0#HTML" expanded="false" />
-            <element signature="e#6918#6926#0#HTML" expanded="false" />
-            <element signature="e#7010#7018#0#HTML" expanded="false" />
-            <element signature="e#7019#7027#0#HTML" expanded="false" />
-            <element signature="e#7058#7066#0#HTML" expanded="false" />
-            <element signature="e#7161#7168#0#HTML" expanded="false" />
-            <element signature="e#7229#7237#0#HTML" expanded="false" />
-            <element signature="e#7251#7259#0#HTML" expanded="false" />
-            <element signature="e#7285#7293#0#HTML" expanded="false" />
-            <element signature="e#7312#7320#0#HTML" expanded="false" />
-            <element signature="e#7339#7347#0#HTML" expanded="false" />
-            <element signature="e#7378#7386#0#HTML" expanded="false" />
-            <element signature="e#7418#7426#0#HTML" expanded="false" />
-            <element signature="e#7459#7467#0#HTML" expanded="false" />
-            <element signature="e#7524#7532#0#HTML" expanded="false" />
-            <element signature="e#7542#7550#0#HTML" expanded="false" />
-            <element signature="e#7610#7618#0#HTML" expanded="false" />
-            <element signature="e#7631#7639#0#HTML" expanded="false" />
-            <element signature="e#7692#7700#0#HTML" expanded="false" />
-            <element signature="e#7702#7710#0#HTML" expanded="false" />
-            <element signature="e#7749#7757#0#HTML" expanded="false" />
-            <element signature="e#7758#7766#0#HTML" expanded="false" />
-            <element signature="e#7771#7779#0#HTML" expanded="false" />
-            <element signature="e#7814#7822#0#HTML" expanded="false" />
-            <element signature="e#7845#7853#0#HTML" expanded="false" />
-            <element signature="e#7981#7989#0#HTML" expanded="false" />
-            <element signature="e#8008#8016#0#HTML" expanded="false" />
-            <element signature="e#8111#8119#0#HTML" expanded="false" />
-            <element signature="e#8124#8132#0#HTML" expanded="false" />
-            <element signature="e#8315#8323#0#HTML" expanded="false" />
-            <element signature="e#8382#8390#0#HTML" expanded="false" />
-            <element signature="e#8398#8406#0#HTML" expanded="false" />
-            <element signature="e#8413#8420#0#HTML" expanded="false" />
-            <element signature="e#8453#8460#0#HTML" expanded="false" />
-            <element signature="e#8476#8484#0#HTML" expanded="false" />
-            <element signature="e#8533#8541#0#HTML" expanded="false" />
-            <element signature="e#8584#8592#0#HTML" expanded="false" />
-            <element signature="e#8606#8614#0#HTML" expanded="false" />
-            <element signature="e#8615#8622#0#HTML" expanded="false" />
-            <element signature="e#8635#8643#0#HTML" expanded="false" />
-            <element signature="e#8643#8650#0#HTML" expanded="false" />
-            <element signature="e#8661#8669#0#HTML" expanded="false" />
-            <element signature="e#8717#8725#0#HTML" expanded="false" />
-            <element signature="e#8830#8838#0#HTML" expanded="false" />
-            <element signature="e#8849#8857#0#HTML" expanded="false" />
-            <element signature="e#8858#8866#0#HTML" expanded="false" />
-            <element signature="e#8867#8875#0#HTML" expanded="false" />
-            <element signature="e#8877#8884#0#HTML" expanded="false" />
-            <element signature="e#8917#8925#0#HTML" expanded="false" />
-            <element signature="e#8942#8950#0#HTML" expanded="false" />
-            <element signature="e#8964#8971#0#HTML" expanded="false" />
-            <element signature="e#8984#8992#0#HTML" expanded="false" />
-            <element signature="e#9021#9029#0#HTML" expanded="false" />
-            <element signature="e#9043#9051#0#HTML" expanded="false" />
-            <element signature="e#9074#9082#0#HTML" expanded="false" />
-            <element signature="e#9213#9221#0#HTML" expanded="false" />
-            <element signature="e#9354#9362#0#HTML" expanded="false" />
-            <element signature="e#9381#9388#0#HTML" expanded="false" />
-            <element signature="e#9491#9499#0#HTML" expanded="false" />
-            <element signature="e#9598#9606#0#HTML" expanded="false" />
-            <element signature="e#9670#9678#0#HTML" expanded="false" />
-            <element signature="e#9712#9720#0#HTML" expanded="false" />
-            <element signature="e#9728#9736#0#HTML" expanded="false" />
-            <element signature="e#9764#9772#0#HTML" expanded="false" />
-            <element signature="e#9898#9906#0#HTML" expanded="false" />
-            <element signature="e#9961#9969#0#HTML" expanded="false" />
-            <element signature="e#9990#9998#0#HTML" expanded="false" />
-            <element signature="e#10039#10047#0#HTML" expanded="false" />
-            <element signature="e#10082#10090#0#HTML" expanded="false" />
-            <element signature="e#10116#10124#0#HTML" expanded="false" />
-            <element signature="e#10204#10212#0#HTML" expanded="false" />
-            <element signature="e#10272#10280#0#HTML" expanded="false" />
-            <element signature="e#10283#10291#0#HTML" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1181,20 +910,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.mechanics">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1202,7 +917,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="230">
           <caret line="24" column="48" lean-forward="false" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1210,7 +924,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1218,15 +931,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-243">
           <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1234,7 +938,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3">
           <caret line="44" column="5" lean-forward="false" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1242,20 +945,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="93">
           <caret line="89" column="38" lean-forward="false" selection-start-line="89" selection-start-column="38" selection-end-line="89" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1263,7 +952,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="20" column="67" lean-forward="false" selection-start-line="20" selection-start-column="67" selection-end-line="20" selection-end-column="67" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1271,15 +959,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="20" column="22" lean-forward="false" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1287,7 +966,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
           <caret line="17" column="57" lean-forward="false" selection-start-line="17" selection-start-column="57" selection-end-line="17" selection-end-column="57" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1295,65 +973,18 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="224">
           <caret line="22" column="49" lean-forward="true" selection-start-line="22" selection-start-column="49" selection-end-line="22" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
-          <caret line="102" column="60" lean-forward="true" selection-start-line="102" selection-start-column="60" selection-end-line="102" selection-end-column="60" />
-          <folding>
-            <element signature="e#522#1258#0#PHP" expanded="false" />
-            <element signature="e#1264#2208#0#PHP" expanded="false" />
-            <element signature="e#2214#2931#0#PHP" expanded="false" />
-            <element signature="e#2937#3160#0#PHP" expanded="false" />
-            <element signature="e#3465#3925#0#PHP" expanded="false" />
-            <element signature="e#3930#5216#0#PHP" expanded="false" />
-            <element signature="e#5222#7172#0#PHP" expanded="false" />
-            <element signature="e#13991#14861#0#PHP" expanded="false" />
-            <element signature="e#14866#16829#0#PHP" expanded="false" />
-            <element signature="e#16835#17349#0#PHP" expanded="false" />
-            <element signature="e#17354#17622#0#PHP" expanded="false" />
-            <element signature="e#17629#18900#0#PHP" expanded="false" />
-            <element signature="e#18906#20393#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.request_emergencies">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/RequestEmergency.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="23" column="30" lean-forward="true" selection-start-line="23" selection-start-column="30" selection-end-line="23" selection-end-column="30" />
-          <folding>
-            <element signature="e#30#43#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.locations">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1361,48 +992,216 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
           <caret line="6" column="58" lean-forward="false" selection-start-line="6" selection-start-column="58" selection-end-line="6" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocationCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GarageCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DriverCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.users">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.mechanics">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+          <folding>
+            <element signature="e#46#59#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.request_emergencies">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/153539fb/e492eca3-fc25-474f-8beb-97f85362362c/mecanomhackaton.notifications">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-07-23.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19312">
+          <caret line="1207" column="10" lean-forward="false" selection-start-line="1207" selection-start-column="10" selection-end-line="1207" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/auth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="656">
+          <caret line="41" column="10" lean-forward="false" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="184" column="0" lean-forward="false" selection-start-line="184" selection-start-column="0" selection-end-line="184" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="71" column="25" lean-forward="false" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="25" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/LocationCrudController.php">
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-08-03.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state relative-caret-position="-4472">
+          <caret line="388" column="186" lean-forward="false" selection-start-line="388" selection-start-column="128" selection-end-line="388" selection-end-column="186" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/GarageCrudController.php">
+    <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/DriverCrudController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
+        <state relative-caret-position="276">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#46#59#0#PHP" expanded="true" />
+            <marker date="1564880856146" expanded="true" signature="542:2007" ph="..." />
+            <marker date="1564880856146" expanded="true" signature="543:563" ph="..." />
+            <marker date="1564880856146" expanded="true" signature="967:2006" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-668">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+          <folding>
+            <element signature="e#2660#3129#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/RequestEmergency.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-220">
+          <caret line="90" column="33" lean-forward="false" selection-start-line="90" selection-start-column="20" selection-end-line="90" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="88" column="62" lean-forward="false" selection-start-line="88" selection-start-column="62" selection-end-line="88" selection-end-column="62" />
+          <folding>
+            <element signature="e#45#67#0#PHP" expanded="true" />
+            <element signature="e#560#1296#0#PHP" expanded="false" />
+            <element signature="e#1302#2246#0#PHP" expanded="false" />
+            <element signature="e#2254#2477#0#PHP" expanded="false" />
+            <element signature="e#2484#5028#0#PHP" expanded="false" />
+            <element signature="e#5034#7573#0#PHP" expanded="false" />
+            <element signature="e#7579#9479#0#PHP" expanded="false" />
+            <element signature="e#9487#10766#0#PHP" expanded="false" />
+            <element signature="e#10772#12267#0#PHP" expanded="false" />
+            <element signature="e#12273#13682#0#PHP" expanded="false" />
+            <element signature="e#13688#13739#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="500">
+          <caret line="131" column="0" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="e#44#66#0#PHP" expanded="true" />
+            <element signature="e#393#1835#0#PHP" expanded="false" />
+            <element signature="e#1841#2878#0#PHP" expanded="false" />
+            <element signature="e#4851#6205#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-08-04.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="167">
+          <caret line="148" column="53" lean-forward="false" selection-start-line="148" selection-start-column="53" selection-end-line="148" selection-end-column="53" />
+          <folding>
+            <element signature="e#44#66#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>

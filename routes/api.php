@@ -17,20 +17,34 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace' => 'api'], function () {
-    Route::post('login', 'ApiController@login');
-    Route::post('register', 'ApiController@register');
-    Route::post('refreshfbtoken', 'ApiController@refreshFbToken');
-    Route::post('getAllMaker', 'ApiController@getAllMaker');
-    Route::post('sendMechanicLocation', 'ApiController@sendMechanicLocation');
-    Route::post('changeMechanicLocation', 'ApiController@changeMechanicLocation');
-    Route::post('saveNotifClientMainRequest', 'ApiController@saveNotifClientMainRequest');
-    Route::post('getMechanicInfo', 'ApiController@getMechanicInfo');
+Route::group(['namespace' => 'api' 
+], function () {
 
-    Route::post('getAllNotif', 'ApiController@getAllNotif');
-    Route::post('getAllHisto', 'ApiController@getAllHisto');
-    Route::post('getNotifInfo', 'ApiController@getNotifInfo');
-    Route::post('getRemainingTime', 'ApiController@getRemainingTime');
+Route::post('login', 'ApiController@login');
+Route::post('register', 'ApiController@register');
+Route::post('refreshfbtoken', 'ApiController@refreshFbToken');
+
+});
+
+
+Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
+], function () {
+
+    Route::post('getAllMaker', 'MechanicController@getAllMaker');
+    Route::post('getAllMechanic', 'MechanicController@getAllMechanic');
+    Route::post('sendMechanicLocation', 'MechanicController@sendMechanicLocation');
+    Route::post('changeMechanicLocation', 'MechanicController@changeMechanicLocation');
+
+
+    Route::post('saveNotifClientMainRequest', 'RequestEmergencyController@saveNotifClientMainRequest');
+    Route::post('getRemainingTime', 'RequestEmergencyController@getRemainingTime');
+
+
+    Route::post('getAllNotif', 'NotificationController@getAllNotif');
+    Route::post('getAllHisto', 'NotificationController@getAllHisto');
+    Route::post('getNotifInfo','NotificationController@getNotifInfo');
+
+
     Route::post('getEmergenciesMechanic', 'ApiController@getEmergenciesMechanic');
     Route::post('getEmergenciesDriver', 'ApiController@getEmergenciesDriver');
     Route::post('sendProcessStatus', 'ApiController@sendProcessStatus');

@@ -16,7 +16,8 @@ use App\User;
  use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Validator;
+ use Illuminate\Support\Facades\Log;
+ use Illuminate\Support\Facades\Validator;
 
 class ApiController extends Controller
 {
@@ -73,23 +74,7 @@ class ApiController extends Controller
         return response()->json($user,$this->successStatus);
     }
 
-    public function getAllMaker(Request $request) {
-//        $mechanicList = array();
 
-        $mechanics = Mechanic::all();
-        foreach ($mechanics as $mechanic){
-//               $mechanic->user->makeHidden(["password","token"]);
-//               $location = Location::find($mechanic->location_id);
-//
-//               $arrayFullMechanicModel = array_merge(array("locations" =>$location), $mechanic->toArray());
-//               $arrayFullMechanicModel1 = array_merge(array("user" =>$mechanic->user), $arrayFullMechanicModel);
-//
-//               array_push($mechanicList,$arrayFullMechanicModel1) ;
-            $mechanic->location = $mechanic->user->location;
-        }
-
-        return $mechanics->toJson();
-    }
 
     public function refreshFbToken(Request $request) {
         $user = User::find($request->id);
@@ -100,151 +85,15 @@ class ApiController extends Controller
         return response()->json( $this->successStatus);
     }
 
-    public function sendMechanicLocation(Request $request) {
-
-        $location = Location::create($request->location);
-
-        $user = User::find($request->user_id);
-        $user->location_id = $location->id;
-        $user->save();
-
-        return response()->json( $this->successStatus);
-    }
-
-    public function changeMechanicLocation(Request $request) {
-
-        $incom_loc = $request->location;
-        $user = User::find($request->user_id);
-
-
-
-        $location = Location::find($user->location_id);
-
-        $location->latitude = $incom_loc["latitude"];
-        $location->longitude = $incom_loc["longitude"];
-
-        $location->adress = $incom_loc["adress"];
-
-        $location->save();
-
-
-        return response()->json( $this->successStatus);
-    }
-    public function pushnotification($token, $title,$message)
-    {
-        $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
-
-        $notification = [
-            'title' => $title,
-            'sound' => true,
-            'body' => $message
-        ];
-
-        $extraNotificationData = ["message" => $notification ];
-
-        $fcmNotification = [
-            //'registration_ids' => $tokenList, //multple token array
-            'to'        => $token, //single token
-            'notification' => $notification,
-            'data' => $extraNotificationData
-        ];
-
-        $headers = [
-            'Authorization: key=AAAAv1r4rVo:APA91bGegIMyOQapHwCKiPa8bXkgYnKa4mZc_LlVfkJbIdTe8nWO8qWXX1lUnmNvnGSto6_xsWOaE_1a2n1i1DwMt2-6cjYi9FmRSVzOSs3UC5VKQHGNtVOUMXne9bXZ4_j4-VfWyali',
-            'Content-Type: application/json'
-        ];
-
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL,$fcmUrl);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fcmNotification));
-        $result = curl_exec($ch);
-        curl_close($ch);
-
-        return true;
-
-    }
-
-    public function saveNotifClientMainRequest(Request $request) {
-
-        $detailvehicule = new Vehicle;
-
-        $arrayUserData = $request->userDriver;
-        $incomming_loc = $request->locations;
-        $array = $request->detailVehicule;
-        $detailvehicule->mark = $array["mark"];
-        $detailvehicule->model = $array["model"];
-        $detailvehicule->color = $array["color"];
-        $detailvehicule->year = $array["year"];
-        $detailvehicule->transmission = $array["transmission"];
-        $detailvehicule->save();
-
-        $location = new Location;
-        $location->adress =$incomming_loc["adress"];
-        $location->longitude =$incomming_loc["longitude"];
-        $location->latitude =$incomming_loc["latitude"];
-        $location->save();
-
-        $requestEmergency = new RequestEmergency;
-        $requestEmergency->vehicule_id= $detailvehicule->id;
-        $requestEmergency->location_id= $location->id;
-        $requestEmergency->trouble = $array["trouble"];
-        $requestEmergency->mechanic_user_id = $request->mechanic_user_id;
-        $requestEmergency->driver_user_id = $arrayUserData["id"];
-        $requestEmergency->save();
-
-        $notification = new Notification;
-        $notification->date = $array["date"];
-
-        $notification->recipient_id = $request->mechanic_user_id;
-        $notification->request_emergency_id = $requestEmergency->id;
-
-
-
-        $driverName = User::where('id', $arrayUserData["id"])
-            ->select('email')
-            ->first()->email;
-        $notification->body =  $driverName." a un probleme,cliquez ici pour voir plus d info";
-        $notification->save();
-
-
-         $destination_token = User::find($request->mechanic_user_id)->fbtoken;
-
-         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
-             return response()->json( $this->successStatus);
-
-         }
-         else
-             return response()->json( 405);
-
-
-    }
-
-    public function getMechanicInfo(Request $request) {
-
-        $mechanic_id = $request->input("mechanic_id");
-         $mechanic = Mechanic::find($mechanic_id);
-         $mechanic->user = $mechanic->user;
-        $mechanic->garage = Garage::where("mechanic_id",$mechanic->id)->first() ;
-        $mechanic->user->location = $mechanic->user->location;
-
-//        $location = Location::find($mechanic->location_id);
-//
-//        $arrayFullMechanicModel = array_merge(array("locations" =>$location), $mechanic->toArray());
-
-
-        return $mechanic->toJson();
-    }
 
     public function getEmergenciesMechanic(Request $request) {
 
 
         $request_emergencies = RequestEmergency::where('mechanic_user_id',$request->id)
             ->where('is_mechanic_agree',true)
+            ->where('process_success' , false)
+            ->where('process_success' , false)
+            ->orderByDesc('created_at')
             ->get();
 
 
@@ -312,6 +161,9 @@ class ApiController extends Controller
 
         $request_emergencies = RequestEmergency::where('driver_user_id',$request->id)
             ->where('is_mechanic_agree',true)
+            ->where('process_success' , false)
+            ->where('process_success' , false)
+            ->orderByDesc('created_at')
             ->get();
 
 
@@ -374,119 +226,6 @@ class ApiController extends Controller
         return response()->json($array_final_notif);
     }
 
-    public function getAllNotif(Request $request) {
-
-
-        $notifications = Notification::where('recipient_id',$request->id)->get();
-
-
-        foreach ($notifications as $notification){
-            $notification->process_fail = $notification->request_emergency->process_fail;
-            $notification->process_success = $notification->request_emergency->process_success;
-            $notification->is_rate = $notification->request_emergency->is_rate;
-            $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
-            $notification->driver_user_id = $notification->request_emergency->driver_user_id;
-
-            $delay = $notification->delay;
-            $date_start = Carbon::parse($notification->created_at);
-            $date_now =  Carbon::now();
-
-
-            $minutes = 0;
-
-            if (strpos($delay, 'hr') !== false) {
-                $delay = substr($delay,0,-3);
-                $minutes = (int)$delay * 60;
-             }
-            if (strpos($delay, 'min') !== false) {
-                $delay = substr($delay,0,-4);
-                $minutes = (int)$delay;
-            }
-            $date_start->addMinutes( $minutes);
-
-
-            if( $date_start->greaterThan($date_now))
-                $notification->end_time = false;
-
-            else
-               $notification->end_time = true;
-
-
-        }
-
-        return response()->json($notifications);
-    }
-    public function getAllHisto(Request $request) {
-
-        if($request->isMechanic == 0)
-            $notifications = Notification::where('recipient_id', '!=' ,$request->id)->get()->all();
-        else
-            $notifications = Notification::where('recipient_id',$request->id)->get()->all();
-
-        foreach ($notifications as $notification){
-            $notification->process_fail = $notification->request_emergency->process_fail;
-            $notification->process_success = $notification->request_emergency->process_success;
-            $notification->is_rate = $notification->request_emergency->is_rate;
-            $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
-            $notification->driver_user_id = $notification->request_emergency->driver_user_id;
-
-
-        }
-
-        return response()->json($notifications);
-    }
-    public function getNotifInfo(Request $request) {
-
-
-        $notif_id = $request->notif_id;
-
-
-        $notification =  Notification::find($notif_id);
-
-        $notification->mechanic_name = User::find($notification->request_emergency->mechanic_user_id)->email;
-        $notification->driver_name = User::find($notification->request_emergency->driver_user_id)->email;
-        $user =  User::find($notification->request_emergency->mechanic_user_id);
-
-        $mechanic = Mechanic::where("user_id",$user->id)->first();
-
-        $garage =  Garage::where("mechanic_id",$mechanic->id)->first();
-         $notification->garage_name = $garage->name;
-
-        $notification->garage_address = $garage->addresse;
-         $notificationInfos = User::find($notification->request_emergency->driver_user_id);
-
-
-        $notificationInfos->addHidden(["password","token"]);
-        $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
-        $notification->process_success = $requestEmergency->process_success;
-        $notification->process_fail = $requestEmergency->process_fail;
-        $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
-        $notification->driver_user_id = $requestEmergency->driver_user_id;
-
-        $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
-        $location = Location::find($requestEmergency->location_id);
-
-
-        $arrayDV  = array();
-        $arrayDV["detailVehicule"] = $vehiculeDetail  ;
-        $arrayDV["remainingTime"] = $this->remainingTime($notification) ;
-
-        $arrayDV["trouble"] =  $requestEmergency->trouble ;
-        $arrayLoc = array("locations" =>$location) ;
-        $arrayNotif = array_merge($arrayDV, $arrayLoc,$notification->toArray());
-
-        $arrayNotification = array("notifications" =>$arrayNotif) ;
-
-
-
-        $arrayAllData = array_merge($arrayNotification, $notificationInfos->toArray() );
-
-
-
-
-        return response()->json($arrayAllData);
-    }
-
     public function sendProcessStatus(Request $request)
     {
         $request_emergency_id = $request->request_emergency_id;
@@ -506,20 +245,54 @@ class ApiController extends Controller
 
         $requestEmergency->save();
 
-        return response()->json( $this->successStatus);
+        if($success == 0){
+
+            $notification = new Notification;
+            $notification->status = 1;
+            $notification->request_emergency_id = $requestEmergency->id;
+            $notification->date = date("Y-m-d H:i:s");
+            Log::info('Showing user profile for user: '.$request->user());
+
+            $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
+
+            if($mechanic){
+
+
+
+                $notification->body = auth('api')->user()->name." a annulé l'opération" ;
+                $notification->recipient_id = $requestEmergency->driver_user_id;
+                $notification->save();
+
+                $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
+
+            }
+            else{
+                $notification->body = auth('api')->user()->email." a annulé l'opération" ;
+                $notification->recipient_id =   $requestEmergency->mechanic_user_id;
+                $notification->save();
+
+                $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
+            }
+
+
+            if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+                return response()->json( $this->successStatus);
+
+            }
+            else
+                return response()->json( 405);
+        }
+
+        else{
+            return response()->json( $this->successStatus);
+
+        }
+
+
+
 
     }
-    public function getRemainingTime(Request $request) {
-        $notif_id = $request->notif_id;
 
-
-        $notification =  Notification::find($notif_id);
-
-        $arrayAllData = $this->remainingTime($notification);
-
-
-        return response()->json($arrayAllData);
-    }
 
 
     public function notifRequestFromCancel(Request $request) {
@@ -551,7 +324,7 @@ class ApiController extends Controller
 
         $destination_token = User::find($request->driver_user_id)->fbtoken;
 
-        if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
+        if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
             return response()->json( $this->successStatus);
 
         }
@@ -592,7 +365,7 @@ class ApiController extends Controller
 
         $destination_token = User::find($request->driver_user_id)->fbtoken;
 
-        if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
+        if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
             return response()->json( $this->successStatus);
 
         }
@@ -654,51 +427,7 @@ class ApiController extends Controller
      * @param $notification
      * @return array
      */
-    public function remainingTime($notification)
-    {
-        $delay = $notification->delay;
-        $date_start = Carbon::parse($notification->created_at);
-        $date_now = Carbon::now();
 
-
-        $minutes = 0;
-        $seconds_total = 0;
-
-        if (strpos($delay, 'hr') !== false) {
-            $delay = substr($delay, 0, -3);
-            $minutes = (int)$delay * 60;
-            $seconds_total = $minutes * 60;
-        }
-        if (strpos($delay, 'min') !== false) {
-            $delay = substr($delay, 0, -4);
-            $minutes = (int)$delay;
-            $seconds_total = $minutes * 60;
-
-        }
-        $date_start->addMinutes($minutes);
-
-
-        if ($date_start->greaterThan($date_now)) {
-            $date_diff = $date_start->diff($date_now);
-            $minutes = $date_diff->days * 24 * 60;
-            $minutes += $date_diff->h * 60;
-            $minutes += $date_diff->i;
-            $seconds_remaining = $date_diff->s + ($minutes * 60);
-            $arrayAllData = [
-                "seconds_remaining" => $seconds_remaining,
-                "seconds_total" => $seconds_total,
-                "end" => false
-            ];
-            return $arrayAllData;
-
-        } else {
-            $arrayAllData = [
-                "seconds" => 0,
-                "end" => true
-            ];
-            return $arrayAllData;
-        }
-    }
 
 
 
