@@ -92,7 +92,7 @@ class ApiController extends Controller
         $request_emergencies = RequestEmergency::where('mechanic_user_id',$request->id)
             ->where('is_mechanic_agree',true)
             ->where('process_success' , false)
-            ->where('process_success' , false)
+            ->where('process_fail' , false)
             ->orderByDesc('created_at')
             ->get();
 
@@ -162,7 +162,7 @@ class ApiController extends Controller
         $request_emergencies = RequestEmergency::where('driver_user_id',$request->id)
             ->where('is_mechanic_agree',true)
             ->where('process_success' , false)
-            ->where('process_success' , false)
+            ->where('process_fail' , false)
             ->orderByDesc('created_at')
             ->get();
 

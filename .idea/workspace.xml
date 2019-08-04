@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -91,22 +91,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ApiController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
               <folding>
                 <element signature="e#45#67#0#PHP" expanded="true" />
                 <element signature="e#560#1296#0#PHP" expanded="false" />
                 <element signature="e#1302#2246#0#PHP" expanded="false" />
                 <element signature="e#2254#2477#0#PHP" expanded="false" />
-                <element signature="e#2484#5028#0#PHP" expanded="false" />
-                <element signature="e#5034#7573#0#PHP" expanded="false" />
-                <element signature="e#7583#8862#0#PHP" expanded="false" />
-                <element signature="e#8868#10363#0#PHP" expanded="false" />
-                <element signature="e#10369#11778#0#PHP" expanded="false" />
-                <element signature="e#11784#11835#0#PHP" expanded="false" />
+                <element signature="e#2484#5025#0#PHP" expanded="false" />
+                <element signature="e#10363#11772#0#PHP" expanded="false" />
+                <element signature="e#11778#11829#0#PHP" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -115,8 +112,8 @@
       <file leaf-file-name="NotificationController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="131" column="0" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="131" selection-end-column="0" />
+            <state relative-caret-position="-32">
+              <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
               <folding>
                 <element signature="e#44#66#0#PHP" expanded="true" />
                 <element signature="e#393#1835#0#PHP" expanded="false" />
@@ -140,8 +137,8 @@
       <file leaf-file-name="Notification.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="60" />
+            <state relative-caret-position="130">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -159,11 +156,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RequestEmergencyController.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RequestEmergencyController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="96" column="25" lean-forward="false" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+            <state relative-caret-position="505">
+              <caret line="248" column="50" lean-forward="false" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
               <folding>
                 <element signature="e#44#66#0#PHP" expanded="true" />
                 <element signature="e#3484#5652#0#PHP" expanded="false" />
@@ -195,7 +192,7 @@
       <file leaf-file-name="api.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
+            <state relative-caret-position="8">
               <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
               <folding>
                 <marker date="1564895690515" expanded="true" signature="542:2020" ph="..." />
@@ -220,7 +217,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>update a</find>
       <find>da</find>
       <find>driver</find>
       <find>users</find>
@@ -250,6 +246,7 @@
       <find>request</find>
       <find>getEmergenciesMechanic</find>
       <find>remainingTime</find>
+      <find>$this-&gt;pushnotification</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -299,10 +296,10 @@
         <option value="$PROJECT_DIR$/storage/logs/laravel-2019-08-03.log" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php" />
         <option value="$PROJECT_DIR$/app/Models/RequestEmergency.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
       </list>
     </option>
   </component>
@@ -750,12 +747,12 @@
       <workItem from="1563253178676" duration="590000" />
       <workItem from="1563462596614" duration="17451000" />
       <workItem from="1564185177331" duration="255000" />
-      <workItem from="1564818595988" duration="18887000" />
+      <workItem from="1564818595988" duration="21106000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="204155000" />
+    <option name="totallyTimeSpent" value="206374000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="741" extended-state="6" />
@@ -1033,7 +1030,7 @@
         <state relative-caret-position="720">
           <caret line="51" column="32" lean-forward="false" selection-start-line="51" selection-start-column="32" selection-end-line="51" selection-end-column="32" />
           <folding>
-            <element signature="e#46#59#0#PHP" expanded="true" />
+            <element signature="e#46#59#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1112,27 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="69" column="60" lean-forward="false" selection-start-line="69" selection-start-column="47" selection-end-line="69" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="500">
-          <caret line="131" column="0" lean-forward="true" selection-start-line="88" selection-start-column="8" selection-end-line="131" selection-end-column="0" />
-          <folding>
-            <element signature="e#44#66#0#PHP" expanded="true" />
-            <element signature="e#393#1835#0#PHP" expanded="false" />
-            <element signature="e#1841#2878#0#PHP" expanded="false" />
-            <element signature="e#4851#6205#0#PHP" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel-2019-08-04.log">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1141,21 +1117,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="228" column="0" lean-forward="false" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
+        <state relative-caret-position="-380">
+          <caret line="38" column="87" lean-forward="false" selection-start-line="38" selection-start-column="87" selection-end-line="38" selection-end-column="87" />
           <folding>
-            <element signature="e#45#67#0#PHP" expanded="true" />
-            <element signature="e#560#1296#0#PHP" expanded="false" />
-            <element signature="e#1302#2246#0#PHP" expanded="false" />
-            <element signature="e#2254#2477#0#PHP" expanded="false" />
-            <element signature="e#2484#5028#0#PHP" expanded="false" />
-            <element signature="e#5034#7573#0#PHP" expanded="false" />
-            <element signature="e#7583#8862#0#PHP" expanded="false" />
-            <element signature="e#8868#10363#0#PHP" expanded="false" />
-            <element signature="e#10369#11778#0#PHP" expanded="false" />
-            <element signature="e#11784#11835#0#PHP" expanded="false" />
+            <element signature="e#2651#3120#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1170,7 +1137,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/api.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
+        <state relative-caret-position="8">
           <caret line="36" column="0" lean-forward="true" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding>
             <marker date="1564895690515" expanded="true" signature="542:2020" ph="..." />
@@ -1180,23 +1147,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-380">
-          <caret line="38" column="87" lean-forward="false" selection-start-line="38" selection-start-column="87" selection-end-line="38" selection-end-column="87" />
+        <state relative-caret-position="-32">
+          <caret line="115" column="0" lean-forward="true" selection-start-line="115" selection-start-column="0" selection-end-line="115" selection-end-column="0" />
           <folding>
-            <element signature="e#2651#3120#0#PHP" expanded="false" />
+            <element signature="e#44#66#0#PHP" expanded="true" />
+            <element signature="e#393#1835#0#PHP" expanded="false" />
+            <element signature="e#1841#2878#0#PHP" expanded="false" />
+            <element signature="e#4851#6205#0#PHP" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="96" column="25" lean-forward="false" selection-start-line="96" selection-start-column="25" selection-end-line="96" selection-end-column="25" />
+        <state relative-caret-position="505">
+          <caret line="248" column="50" lean-forward="false" selection-start-line="248" selection-start-column="50" selection-end-line="248" selection-end-column="50" />
           <folding>
             <element signature="e#44#66#0#PHP" expanded="true" />
             <element signature="e#3484#5652#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="159" column="0" lean-forward="true" selection-start-line="159" selection-start-column="0" selection-end-line="159" selection-end-column="0" />
+          <folding>
+            <element signature="e#45#67#0#PHP" expanded="true" />
+            <element signature="e#560#1296#0#PHP" expanded="false" />
+            <element signature="e#1302#2246#0#PHP" expanded="false" />
+            <element signature="e#2254#2477#0#PHP" expanded="false" />
+            <element signature="e#2484#5025#0#PHP" expanded="false" />
+            <element signature="e#10363#11772#0#PHP" expanded="false" />
+            <element signature="e#11778#11829#0#PHP" expanded="false" />
           </folding>
         </state>
       </provider>
