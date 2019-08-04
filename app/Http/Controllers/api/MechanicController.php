@@ -36,7 +36,7 @@ use App\Http\Controllers\Controller;
     public function getAllMechanic(Request $request) {
 
         if(!empty($request->mechanic_id)){
-            $mechanics_list = Mechanic::where('id','!=',$request->input("mechanic_id"))->take(2)->get();
+            $mechanics_list = Mechanic::where('id','!=',$request->input("mechanic_id"))->get();
             foreach ($mechanics_list as $mechanic){
                 $mechanic->user = $mechanic->user;
                 $mechanic->location = $mechanic->user->location;
