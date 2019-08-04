@@ -38,6 +38,7 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 
     Route::post('saveNotifClientMainRequest', 'RequestEmergencyController@saveNotifClientMainRequest');
     Route::post('getRemainingTime', 'RequestEmergencyController@getRemainingTime');
+    Route::post('sendProcessStatus', 'RequestEmergencyController@sendProcessStatus');
 
 
     Route::post('getAllNotif', 'NotificationController@getAllNotif');
@@ -47,7 +48,6 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 
     Route::post('getEmergenciesMechanic', 'ApiController@getEmergenciesMechanic');
     Route::post('getEmergenciesDriver', 'ApiController@getEmergenciesDriver');
-    Route::post('sendProcessStatus', 'ApiController@sendProcessStatus');
 
     Route::post('notifRequestFromCancel', 'ApiController@notifRequestFromCancel');
     Route::post('notifRequestFromAccept', 'ApiController@notifRequestFromAccept');

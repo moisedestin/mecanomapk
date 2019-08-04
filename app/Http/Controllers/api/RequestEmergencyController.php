@@ -53,53 +53,53 @@ class RequestEmergencyController extends Controller
         $destination_token = User::find($request->mechanic_user_id)->fbtoken;
 
 
-        $notification->pushnotification($destination_token,"mecanom","nouvelle notification");
-
-        //note that mechanic_id and user_id in these case is not id from mechanictable
-        //this is the user id for both
-
-        $notification2 = new Notification;
-        $notification2->delay = "30 min";
-        $notification2->status = 1;
-        $notification2->recipient_id = auth('api')->user()->id;
-        $notification2->request_emergency_id = $requestEmergency->id;
-        $notification2->date = $array["date"];
-
-        $driverName = User::where('id', $request->mechanic_user_id)
-            ->select('name')
-            ->first()->name;
-        $notification2->body = $driverName." a accepté la demande et sera la dans 10 min" ;
-        $notification2->save();
-
-        $request_emergency = RequestEmergency::find($requestEmergency->id);
-        $request_emergency->is_mechanic_agree = true;
-        $request_emergency->save();
-
-
-
-        $updateNotif = Notification::where("request_emergency_id",$requestEmergency->id)
-            ->where("recipient_id",$request->mechanic_user_id)
-            ->first();
-        $updateNotif->status = 1;
-        $updateNotif->save();
-
-
-        $destination_token = auth('api')->user()->fbtoken;
-
-        if($notification2->pushnotification($destination_token,"mecanom","nouvelle notification")){
-            return response()->json( $this->successStatus);
-
-        }
-        else
-            return response()->json( 405);
-
-
-//         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
-//             return response()->json( $this->successStatus);
+//        $notification->pushnotification($destination_token,"mecanom","nouvelle notification");
 //
-//         }
-//         else
-//             return response()->json( 405);
+//        //note that mechanic_id and user_id in these case is not id from mechanictable
+//        //this is the user id for both
+//
+//        $notification2 = new Notification;
+//        $notification2->delay = "30 min";
+//        $notification2->status = 1;
+//        $notification2->recipient_id = auth('api')->user()->id;
+//        $notification2->request_emergency_id = $requestEmergency->id;
+//        $notification2->date = $array["date"];
+//
+//        $driverName = User::where('id', $request->mechanic_user_id)
+//            ->select('name')
+//            ->first()->name;
+//        $notification2->body = $driverName." a accepté la demande et sera la dans 10 min" ;
+//        $notification2->save();
+//
+//        $request_emergency = RequestEmergency::find($requestEmergency->id);
+//        $request_emergency->is_mechanic_agree = true;
+//        $request_emergency->save();
+//
+//
+//
+//        $updateNotif = Notification::where("request_emergency_id",$requestEmergency->id)
+//            ->where("recipient_id",$request->mechanic_user_id)
+//            ->first();
+//        $updateNotif->status = 1;
+//        $updateNotif->save();
+//
+//
+//        $destination_token = auth('api')->user()->fbtoken;
+//
+//        if($notification2->pushnotification($destination_token,"mecanom","nouvelle notification")){
+//            return response()->json( $this->successStatus);
+//
+//        }
+//        else
+//            return response()->json( 405);
+
+
+         if($this->pushnotification($destination_token,"mecanom","nouvelle notification")){
+             return response()->json( $this->successStatus);
+
+         }
+         else
+             return response()->json( 405);
 
 
     }
@@ -167,7 +167,102 @@ class RequestEmergencyController extends Controller
     }
 
 
+    public function sendProcessStatus(Request $request)
+    {
+        $request_emergency_id = $request->request_emergency_id;
+        $success = $request->success;
 
+
+        $requestEmergency = RequestEmergency::find($request_emergency_id);
+
+
+        if($success == 0){
+            $requestEmergency->process_fail = 1;
+        }
+        if($success == 1){
+            $requestEmergency->process_success = 1;
+        }
+
+        $requestEmergency->save();
+
+        if($success == 0){
+
+            $notification = new Notification;
+            $notification->status = 1;
+            $notification->request_emergency_id = $requestEmergency->id;
+            $notification->date = date("Y-m-d H:i:s");
+
+
+            $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
+
+            if($mechanic){
+
+                $notification->body = auth('api')->user()->name." a annulé l'opération" ;
+                $notification->recipient_id = $requestEmergency->driver_user_id;
+                $notification->save();
+
+                $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
+
+                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                    return response()->json( $this->successStatus);
+
+                }
+                else
+                    return response()->json( 405);
+            }
+            else{
+                $notification->body = auth('api')->user()->email." a annulé l'opération" ;
+                $notification->recipient_id =   $requestEmergency->mechanic_user_id;
+                $notification->save();
+
+                $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
+
+                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                    return response()->json( $this->successStatus);
+
+                }
+                else
+                    return response()->json( 405);
+            }
+
+
+        }
+
+        else{
+
+            $notification = new Notification;
+            $notification->status = 1;
+            $notification->request_emergency_id = $requestEmergency->id;
+            $notification->date = date("Y-m-d H:i:s");
+
+
+            $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
+
+            if($mechanic){
+
+                $notification->body = auth('api')->user()->name." a indiqué qu'il est arrivé" ;
+                $notification->recipient_id = $requestEmergency->driver_user_id;
+                $notification->save();
+
+                $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
+
+                if($notification->pushnotification($destination_token,"mecanom",$notification->body)){
+                    return response()->json( $this->successStatus);
+
+                }
+                else
+                    return response()->json( 405);
+            }
+
+
+            return response()->json( $this->successStatus);
+
+        }
+
+
+
+
+    }
 
 
 }

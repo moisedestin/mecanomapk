@@ -226,72 +226,7 @@ class ApiController extends Controller
         return response()->json($array_final_notif);
     }
 
-    public function sendProcessStatus(Request $request)
-    {
-        $request_emergency_id = $request->request_emergency_id;
-        $success = $request->success;
 
-
-        $requestEmergency = RequestEmergency::find($request_emergency_id);
-
-
-        if($success == 0){
-            $requestEmergency->process_fail = 1;
-        }
-        if($success == 1){
-            $requestEmergency->process_success = 1;
-
-        }
-
-        $requestEmergency->save();
-
-        if($success == 0){
-
-            $notification = new Notification;
-            $notification->status = 1;
-            $notification->request_emergency_id = $requestEmergency->id;
-            $notification->date = date("Y-m-d H:i:s");
-            Log::info('Showing user profile for user: '.$request->user());
-
-            $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
-
-            if($mechanic){
-
-
-
-                $notification->body = auth('api')->user()->name." a annulé l'opération" ;
-                $notification->recipient_id = $requestEmergency->driver_user_id;
-                $notification->save();
-
-                $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
-
-            }
-            else{
-                $notification->body = auth('api')->user()->email." a annulé l'opération" ;
-                $notification->recipient_id =   $requestEmergency->mechanic_user_id;
-                $notification->save();
-
-                $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
-            }
-
-
-            if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
-                return response()->json( $this->successStatus);
-
-            }
-            else
-                return response()->json( 405);
-        }
-
-        else{
-            return response()->json( $this->successStatus);
-
-        }
-
-
-
-
-    }
 
 
 
