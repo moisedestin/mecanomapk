@@ -25,7 +25,13 @@ class RequestEmergency extends Model
         "trouble",
         "place_details",
         "telephone",
-        "is_rate","process_success","process_fail","is_mechanic_agree","created_at"];
+        "is_rate",
+        "is_mechanic_agree",
+        "is_mechanic_arrived",
+        "driver_check_arrived",
+        "mechanic_decline",
+        "driver_decline",
+        "created_at"];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -40,24 +46,7 @@ class RequestEmergency extends Model
         return  User::find($this->mechanic_user_id)->name."<br>".User::find($this->mechanic_user_id)->email;
     }
 
-    public function getProcess( )
-    {
-        $success = '';
 
-        if($this->process_success == 0)
-            $success = '<span class="label label-default">No</span>';
-        else
-            $success = '<span class="label label-success">Yes</span>';
-
-        $fail = '';
-
-        if($this->process_fail == 0)
-            $fail = '<span class="label label-default">No</span>';
-        else
-            $fail = '<span class="label label-danger">Yes</span>';
-
-        return   '<a class="label label-default">No</a>'.'<a class="label label-default">No</span>';
-    }
 
 
     /*

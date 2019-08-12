@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
 
 
 class NotificationController extends Controller
@@ -26,8 +27,12 @@ class NotificationController extends Controller
 
 
         foreach ($notifications as $notification){
-            $notification->process_fail = $notification->request_emergency->process_fail;
-            $notification->process_success = $notification->request_emergency->process_success;
+
+            $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
+            $notification->driver_decline = $notification->request_emergency->driver_decline;
+            $notification->driver_check_arrived = $notification->request_emergency->driver_check_arrived;
+            $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
+
             $notification->is_rate = $notification->request_emergency->is_rate;
             $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
             $notification->driver_user_id = $notification->request_emergency->driver_user_id;
@@ -70,8 +75,10 @@ class NotificationController extends Controller
             $notifications = Notification::where('recipient_id',$request->id)->orderByDesc('created_at')->get()->all();
 
         foreach ($notifications as $notification){
-            $notification->process_fail = $notification->request_emergency->process_fail;
-            $notification->process_success = $notification->request_emergency->process_success;
+            $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
+            $notification->driver_decline = $notification->request_emergency->driver_decline;
+            $notification->driver_check_arrived = $notification->request_emergency->driver_check_arrived;
+            $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
             $notification->is_rate = $notification->request_emergency->is_rate;
             $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
             $notification->driver_user_id = $notification->request_emergency->driver_user_id;
@@ -106,12 +113,20 @@ class NotificationController extends Controller
 
         $notificationInfos->addHidden(["password","token"]);
         $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
-        $notification->process_success = $requestEmergency->process_success;
-        $notification->process_fail = $requestEmergency->process_fail;
+        $notification->mechanic_decline = $requestEmergency->mechanic_decline;
+        $notification->driver_decline = $requestEmergency->driver_decline;
+        $notification->is_mechanic_arrived = $requestEmergency->is_mechanic_arrived;
+        $notification->driver_check_arrived = $requestEmergency->driver_check_arrived;
         $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
         $notification->driver_user_id = $requestEmergency->driver_user_id;
 
         $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
+
+        $vehiculeDetail["place_details"] = $requestEmergency->place_details;
+        $vehiculeDetail["telephone"] = $requestEmergency->telephone;
+
+
+
         $location = Location::find($requestEmergency->location_id);
 
 

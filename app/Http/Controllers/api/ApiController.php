@@ -110,7 +110,7 @@ class ApiController extends Controller
         $notification->save();
 
         $request_emergency = RequestEmergency::find($request->request_emergency_id);
-        $request_emergency->process_fail = 1;
+        $request_emergency->mechanic_decline = 1;
         $request_emergency->save();
 
         $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)
@@ -121,7 +121,13 @@ class ApiController extends Controller
 
         $destination_token = User::find($request->driver_user_id)->fbtoken;
 
-        if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+        $notification_array = [
+            'title' => "mecanom",
+            'sound' => true,
+            'body' => $notification->body
+        ];
+
+        if($notification->pushnotification($destination_token,$notification_array)){
             return response()->json( $this->successStatus);
 
         }
@@ -162,7 +168,13 @@ class ApiController extends Controller
 
         $destination_token = User::find($request->driver_user_id)->fbtoken;
 
-        if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+        $notification_array = [
+            'title' => "mecanom",
+            'sound' => true,
+            'body' => $notification->body
+        ];
+
+        if($notification->pushnotification($destination_token,$notification_array)){
             return response()->json( $this->successStatus);
 
         }
@@ -216,9 +228,7 @@ class ApiController extends Controller
         return response()->json($this->successStatus);
     }
 
-    public function getRemainingSeconds($delay){
 
-    }
 
     /**
      * @param $notification

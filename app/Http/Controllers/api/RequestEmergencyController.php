@@ -12,6 +12,9 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Log;
+use Spatie\Geocoder\Geocoder;
+
 
 class RequestEmergencyController extends Controller
 {
@@ -48,13 +51,23 @@ class RequestEmergencyController extends Controller
             ->select('email')
             ->first()->email;
         $notification->body =  $driverName." a un probleme,cliquez ici pour voir plus d info";
+        $notification->title = "Demande de dépannage";
         $notification->save();
 
 
         $destination_token = User::find($request->mechanic_user_id)->fbtoken;
 
 
-//        $notification->pushnotification($destination_token,"mecanom","nouvelle notification");
+        $notification_array = [
+            'title' => "Demande de dépannage",
+            'sound' => true,
+            'body' => " Demande d'assistance à ".$location->adress
+        ];
+
+        //automatic begin
+
+
+//        $notification->pushnotification($destination_token,$notification_array);
 //
 //        //note that mechanic_id and user_id in these case is not id from mechanictable
 //        //this is the user id for both
@@ -87,15 +100,23 @@ class RequestEmergencyController extends Controller
 //
 //        $destination_token = auth('api')->user()->fbtoken;
 //
-//        if($notification2->pushnotification($destination_token,"mecanom","nouvelle notification")){
+//        $notification_array2 = [
+//            'title' => "mecanom",
+//            'sound' => true,
+//            'body' => $notification2->body
+//        ];
+//
+//        if($notification2->pushnotification($destination_token,$notification_array2)){
 //            return response()->json( $this->successStatus);
 //
 //        }
 //        else
 //            return response()->json( 405);
 
+//        automatic end
 
-         if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+
+         if($notification->pushnotification($destination_token, $notification_array)){
              return response()->json( $this->successStatus);
 
          }
@@ -106,15 +127,6 @@ class RequestEmergencyController extends Controller
     }
 
     public function getRemainingTime(Request $request) {
-        $notif_id = $request->notif_id;
-
-
-        $notification =  Notification::find($notif_id);
-        $arrayAllData = $notification->request_emergency->remainingTime($notification);
-
-
-
-
 
         $notif_id = $request->notif_id;
 
@@ -136,12 +148,19 @@ class RequestEmergencyController extends Controller
 
         $notificationInfos->addHidden(["password","token"]);
         $requestEmergency = RequestEmergency::find($notification->request_emergency_id);
-        $notification->process_success = $requestEmergency->process_success;
-        $notification->process_fail = $requestEmergency->process_fail;
+
+        $notification->mechanic_decline = $requestEmergency->mechanic_decline;
+        $notification->driver_decline = $requestEmergency->driver_decline;
+        $notification->is_mechanic_arrived = $requestEmergency->is_mechanic_arrived;
+        $notification->driver_check_arrived = $requestEmergency->driver_check_arrived;
         $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
         $notification->driver_user_id = $requestEmergency->driver_user_id;
 
         $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
+
+        $vehiculeDetail["place_details"] = $requestEmergency->place_details;
+        $vehiculeDetail["telephone"] = $requestEmergency->telephone;
+
         $location = Location::find($requestEmergency->location_id);
 
 
@@ -161,9 +180,6 @@ class RequestEmergencyController extends Controller
 
 
 
-
-
-
         return response()->json($arrayAllData);
     }
 
@@ -177,14 +193,7 @@ class RequestEmergencyController extends Controller
         $requestEmergency = RequestEmergency::find($request_emergency_id);
 
 
-        if($success == 0){
-            $requestEmergency->process_fail = 1;
-        }
-        if($success == 1){
-            $requestEmergency->process_success = 1;
-        }
 
-        $requestEmergency->save();
 
         if($success == 0){
 
@@ -198,13 +207,25 @@ class RequestEmergencyController extends Controller
 
             if($mechanic){
 
+                $requestEmergency->mechanic_decline = 1;
+                $requestEmergency->save();
+
                 $notification->body = auth('api')->user()->name." a annulé l'opération" ;
                 $notification->recipient_id = $requestEmergency->driver_user_id;
                 $notification->save();
 
                 $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+                $notification_array = [
+                    'title' => "mecanom",
+                    'sound' => true,
+                    'reload' => true,
+                    'body' => $notification->body
+                ];
+
+
+
+                if($notification->pushnotification($destination_token,$notification_array)){
                     return response()->json( $this->successStatus);
 
                 }
@@ -212,13 +233,24 @@ class RequestEmergencyController extends Controller
                     return response()->json( 405);
             }
             else{
+
+                $requestEmergency->driver_decline = 1;
+                $requestEmergency->save();
+
                 $notification->body = auth('api')->user()->email." a annulé l'opération" ;
                 $notification->recipient_id =   $requestEmergency->mechanic_user_id;
                 $notification->save();
 
                 $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+                $notification_array = [
+                    'title' => "mecanom",
+                    'sound' => true,
+                    'reload' => true,
+                    'body' => $notification->body
+                ];
+
+                if($notification->pushnotification($destination_token,$notification_array)){
                     return response()->json( $this->successStatus);
 
                 }
@@ -237,9 +269,16 @@ class RequestEmergencyController extends Controller
             $notification->date = date("Y-m-d H:i:s");
 
 
+
+
+
             $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
 
             if($mechanic){
+
+
+                $requestEmergency->is_mechanic_arrived = 1;
+                $requestEmergency->save();
 
                 $notification->body = auth('api')->user()->name." a indiqué qu'il est arrivé" ;
                 $notification->recipient_id = $requestEmergency->driver_user_id;
@@ -247,12 +286,24 @@ class RequestEmergencyController extends Controller
 
                 $destination_token = User::find($requestEmergency->driver_user_id)->fbtoken;
 
-                if($notification->pushnotification($destination_token,"mecanom","nouvelle notification")){
+                $notification_array = [
+                    'title' => "mecanom",
+                    'sound' => true,
+                    'reload' => true,
+                    'body' => $notification->body
+                ];
+
+                if($notification->pushnotification($destination_token,$notification_array)){
                     return response()->json( $this->successStatus);
 
                 }
                 else
                     return response()->json( 405);
+            }
+
+            else{
+                $requestEmergency->driver_check_arrived = 1;
+                $requestEmergency->save();
             }
 
 
@@ -271,8 +322,9 @@ class RequestEmergencyController extends Controller
 
         $request_emergencies = RequestEmergency::where('mechanic_user_id',$request->id)
             ->where('is_mechanic_agree',true)
-            ->where('process_success' , false)
-            ->where('process_fail' , false)
+            ->where('mechanic_decline' , false)
+            ->where('driver_decline' , false)
+            ->where('driver_check_arrived' , false)
             ->orderByDesc('created_at')
             ->get();
 
@@ -282,8 +334,10 @@ class RequestEmergencyController extends Controller
 
         foreach($request_emergencies as $request_emergency){
             foreach ($request_emergency->notifications as $notification){
-                $notification->process_fail = $notification->request_emergency->process_fail;
-                $notification->process_success = $notification->request_emergency->process_success;
+                $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
+                $notification->driver_decline = $notification->request_emergency->driver_decline;
+                $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
+                $notification->driver_check_arrived = $notification->request_emergency->driver_check_arrived;
                 $notification->is_rate = $notification->request_emergency->is_rate;
                 $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
                 $notification->driver_user_id = $notification->request_emergency->driver_user_id;
@@ -341,8 +395,9 @@ class RequestEmergencyController extends Controller
 
         $request_emergencies = RequestEmergency::where('driver_user_id',$request->id)
             ->where('is_mechanic_agree',true)
-            ->where('process_success' , false)
-            ->where('process_fail' , false)
+            ->where('driver_check_arrived' , false)
+            ->where('mechanic_decline' , false)
+            ->where('driver_decline' , false)
             ->orderByDesc('created_at')
             ->get();
 
@@ -352,8 +407,10 @@ class RequestEmergencyController extends Controller
 
         foreach($request_emergencies as $request_emergency){
             foreach ($request_emergency->notifications as $notification){
-                $notification->process_fail = $notification->request_emergency->process_fail;
-                $notification->process_success = $notification->request_emergency->process_success;
+                $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
+                $notification->driver_decline = $notification->request_emergency->driver_decline;
+                $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
+                $notification->driver_check_arrived = $notification->request_emergency->driver_check_arrived;
                 $notification->is_rate = $notification->request_emergency->is_rate;
                 $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
                 $notification->driver_user_id = $notification->request_emergency->driver_user_id;

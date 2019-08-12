@@ -57,22 +57,18 @@ class Notification extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function pushnotification($token, $title,$message)
+    public function pushnotification($token, $notification_array)
     {
         $fcmUrl = 'https://fcm.googleapis.com/fcm/send';
 
-        $notification = [
-            'title' => $title,
-            'sound' => true,
-            'body' => $message
-        ];
 
-        $extraNotificationData = ["message" => $notification ];
+
+        $extraNotificationData = ["message" => $notification_array ];
 
         $fcmNotification = [
             //'registration_ids' => $tokenList, //multple token array
             'to'        => $token, //single token
-            'notification' => $notification,
+            'notification' => $notification_array,
             'data' => $extraNotificationData
         ];
 

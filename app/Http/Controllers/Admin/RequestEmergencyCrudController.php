@@ -93,12 +93,12 @@ class RequestEmergencyCrudController extends CrudController
             ]
         );
 
-        $this->crud->setColumnDetails('process_success',
+        $this->crud->setColumnDetails('is_mechanic_arrived',
             [
-                'label' => 'Process Sucess',
+                'label' => 'Mechanic arrived',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    if($entry->process_success == 0)
+                    if($entry->is_mechanic_arrived == 0)
                         return  '<span class="label label-default">No</span>';
                     else
                         return  '<span class="label label-success">Yes</span>';
@@ -107,12 +107,12 @@ class RequestEmergencyCrudController extends CrudController
             ]
         );
 
-        $this->crud->setColumnDetails('process_fail',
+        $this->crud->setColumnDetails('driver_check_arrived',
             [
-                'label' => 'Process Fail',
+                'label' => 'Driver Check Arrived',
                 'type' => 'closure',
                 'function' => function($entry) {
-                    if($entry->process_fail == 0)
+                    if($entry->driver_check_arrived == 0)
                         return  '<span class="label label-default">No</span>';
                     else
                         return  '<span class="label label-danger">Yes</span>';
