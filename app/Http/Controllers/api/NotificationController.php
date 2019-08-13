@@ -62,6 +62,15 @@ class NotificationController extends Controller
                 $notification->end_time = true;
 
 
+
+
+        }
+
+        $notifications_put_read = Notification::where('recipient_id',$request->id)->orderByDesc('created_at')->get();
+
+        foreach ($notifications_put_read as $notification_put_read) {
+            $notification_put_read->read = 1;
+            $notification_put_read->save();
         }
 
         return response()->json($notifications);
