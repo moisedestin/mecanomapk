@@ -107,7 +107,7 @@ class NotificationController extends Controller
 
         $notification =  Notification::find($notif_id);
 
-        $notification->mechanic_name = User::find($notification->request_emergency->mechanic_user_id)->email;
+        $notification->mechanic_name = User::find($notification->request_emergency->mechanic_user_id)->name;
         $notification->driver_name = User::find($notification->request_emergency->driver_user_id)->email;
         $user =  User::find($notification->request_emergency->mechanic_user_id);
 
