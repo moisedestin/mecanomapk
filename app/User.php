@@ -62,22 +62,28 @@ class User extends Authenticatable
         $mechanic = Mechanic::where("user_id", $this->id)->first();
 
         if ($mechanic)
-            $request_emergencies = RequestEmergency::where("mechanic_user_id", $this->id)->get();
+            $request_emergencies = RequestEmergency::where("mechanic_user_id", $this->id)
+                ->where('is_mechanic_agree',true)
+                ->where('driver_check_arrived' , false)
+                ->where('mechanic_decline' , false)
+                ->where('driver_decline' , false)
+                ->where('driver_check_notarrived' , false)
+                ->get();
         else
-            $request_emergencies = RequestEmergency::where("driver_user_id", $this->id)->get();
+            $request_emergencies = RequestEmergency::where("driver_user_id", $this->id)
+                ->where('is_mechanic_agree',true)
+                ->where('driver_check_arrived' , false)
+                ->where('mechanic_decline' , false)
+                ->where('driver_decline' , false)
+                ->where('driver_check_notarrived' , false)
+                ->get();
 
-        foreach ($request_emergencies as $request_emergency) {
-            if ($request_emergency->driver_decline == 0
-                && $request_emergency->mechanic_decline == 0
-                && !$request_emergency->driver_check_arrived
-                && !$request_emergency->driver_check_notarrived
-            ){
+        if(count($request_emergencies) != 0)
+            return true;
+        else
+            return false;
 
-                return true;
-            }
-        }
 
-        return false;
     }
 
 }
