@@ -21,7 +21,7 @@ class RequestEmergency extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-    protected $fillable = ["mechanic_user_id","driver_user_id",
+    protected $fillable = ["mechanic_user_id", "driver_user_id",
         "trouble",
         "place_details",
         "telephone",
@@ -29,6 +29,7 @@ class RequestEmergency extends Model
         "is_mechanic_agree",
         "is_mechanic_arrived",
         "driver_check_arrived",
+        "driver_check_notarrived",
         "mechanic_decline",
         "driver_decline",
         "created_at"];
@@ -41,12 +42,10 @@ class RequestEmergency extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function getMechanician( )
+    public function getMechanician()
     {
-        return  User::find($this->mechanic_user_id)->name."<br>".User::find($this->mechanic_user_id)->email;
+        return User::find($this->mechanic_user_id)->name . "<br>" . User::find($this->mechanic_user_id)->email;
     }
-
-
 
 
     /*
@@ -55,7 +54,8 @@ class RequestEmergency extends Model
     |--------------------------------------------------------------------------
     */
 
-    public function notifications() {
+    public function notifications()
+    {
         return $this->hasMany(Notification::class);
     }
 
@@ -122,4 +122,6 @@ class RequestEmergency extends Model
             return $arrayAllData;
         }
     }
+
+
 }

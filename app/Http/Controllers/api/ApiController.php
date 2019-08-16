@@ -87,100 +87,18 @@ class ApiController extends Controller
 
 
 
+    public function getCurrentStatus(Request $request) {
 
-
-
-
-
-    public function notifRequestFromCancel(Request $request) {
-
-
-
-        $notification = new Notification;
-        $notification->status = 1;
-        $notification->recipient_id = $request->driver_user_id;
-        $notification->request_emergency_id = $request->request_emergency_id;
-        $notification->date = $request->date;
-
-
-        $driverName = User::where('id', $request->mechanic_user_id)
-            ->select('name')
-            ->first()->name;
-        $notification->body = $driverName." a décliné la demande";
-        $notification->save();
-
-        $request_emergency = RequestEmergency::find($request->request_emergency_id);
-        $request_emergency->mechanic_decline = 1;
-        $request_emergency->save();
-
-        $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)
-            ->where("recipient_id",$request->mechanic_user_id)
-            ->first();
-        $updateNotif->status = 1;
-        $updateNotif->save();
-
-        $destination_token = User::find($request->driver_user_id)->fbtoken;
-
-        $notification_array = [
-            'title' => "mecanom",
-            'sound' => true,
-            'body' => $notification->body
+        return [
+            "has_service_in_progress" => auth('api')->user()->has_service_in_progress()
         ];
 
-        if($notification->pushnotification($destination_token,$notification_array)){
-            return response()->json( $this->successStatus);
-
-        }
-        else
-            return response()->json( 405);
     }
 
-    public function notifRequestFromAccept(Request $request) {
-
-        //note that mechanic_id and user_id in these case is not id from mechanictable
-        //this is the user id for both
-
-        $notification = new Notification;
-        $notification->delay = $request->delay;
-        $notification->status = 1;
-        $notification->recipient_id = $request->driver_user_id;
-        $notification->request_emergency_id = $request->request_emergency_id;
-        $notification->date = $request->date;
-
-        $driverName = User::where('id', $request->mechanic_user_id)
-            ->select('name')
-            ->first()->name;
-        $notification->body = $driverName." a accepté la demande et sera la dans ".$request->delay;
-        $notification->save();
-
-        $request_emergency = RequestEmergency::find($request->request_emergency_id);
-        $request_emergency->is_mechanic_agree = true;
-        $request_emergency->save();
 
 
 
-        $updateNotif = Notification::where("request_emergency_id",$request->request_emergency_id)
-            ->where("recipient_id",$request->mechanic_user_id)
-            ->first();
-        $updateNotif->status = 1;
-        $updateNotif->save();
 
-
-        $destination_token = User::find($request->driver_user_id)->fbtoken;
-
-        $notification_array = [
-            'title' => "mecanom",
-            'sound' => true,
-            'body' => $notification->body
-        ];
-
-        if($notification->pushnotification($destination_token,$notification_array)){
-            return response()->json( $this->successStatus);
-
-        }
-        else
-            return response()->json( 405);
-    }
 
     public function setRating(Request $request) {
 

@@ -24,6 +24,7 @@ class CreateRequestEmergenciesTable extends Migration
             $table->boolean('is_mechanic_agree')->default(false);
             $table->boolean('is_mechanic_arrived')->default(false);
             $table->boolean('driver_check_arrived')->default(false);
+            $table->boolean('driver_check_notarrived')->default(false);
             $table->boolean('driver_decline')->default(false);
             $table->boolean('mechanic_decline')->default(false);
             $table->timestamps();

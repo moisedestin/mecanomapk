@@ -29,6 +29,9 @@ use App\Http\Controllers\Controller;
             $mechanic->location = $mechanic->user->location;
         }
 
+
+
+
         return $mechanics->toJson();
     }
 

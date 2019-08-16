@@ -45,13 +45,14 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
     Route::post('getAllNotif', 'NotificationController@getAllNotif');
     Route::post('getAllHisto', 'NotificationController@getAllHisto');
     Route::post('getNotifInfo','NotificationController@getNotifInfo');
+    Route::post('notifRequestFromCancel', 'NotificationController@notifRequestFromCancel');
+    Route::post('notifRequestFromAccept', 'NotificationController@notifRequestFromAccept');
 
 
 
 
-    Route::post('notifRequestFromCancel', 'ApiController@notifRequestFromCancel');
-    Route::post('notifRequestFromAccept', 'ApiController@notifRequestFromAccept');
 
+    Route::post('getCurrentStatus', 'ApiController@getCurrentStatus');
     Route::post('setRating', 'ApiController@setRating');
 
 });

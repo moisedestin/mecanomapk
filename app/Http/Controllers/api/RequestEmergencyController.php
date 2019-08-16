@@ -41,7 +41,8 @@ class RequestEmergencyController extends Controller
         $requestEmergency->save();
 
         $notification = new Notification;
-        $notification->date = $array["date"];
+//        $notification->date = $array["date"];
+        $notification->date = date("j-m-y H:i");
 
         $notification->recipient_id = $request->mechanic_user_id;
         $notification->request_emergency_id = $requestEmergency->id;
@@ -155,6 +156,7 @@ class RequestEmergencyController extends Controller
         $notification->driver_check_arrived = $requestEmergency->driver_check_arrived;
         $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
         $notification->driver_user_id = $requestEmergency->driver_user_id;
+        $notification->driver_check_notarrived = $requestEmergency->driver_check_notarrived;
 
         $vehiculeDetail = Vehicle::find($requestEmergency->vehicule_id);
 
@@ -200,7 +202,7 @@ class RequestEmergencyController extends Controller
             $notification = new Notification;
             $notification->status = 1;
             $notification->request_emergency_id = $requestEmergency->id;
-            $notification->date = date("Y-m-d H:i:s");
+            $notification->date = date("j-m-y H:i");
 
 
             $mechanic = Mechanic::where("user_id",auth('api')->user()->id)->first();
@@ -261,12 +263,12 @@ class RequestEmergencyController extends Controller
 
         }
 
-        else{
+        if($success == 1){
 
             $notification = new Notification;
             $notification->status = 1;
             $notification->request_emergency_id = $requestEmergency->id;
-            $notification->date = date("Y-m-d H:i:s");
+            $notification->date = date("j-m-y H:i");
 
 
 
@@ -306,6 +308,14 @@ class RequestEmergencyController extends Controller
                 $requestEmergency->save();
             }
 
+
+            return response()->json( $this->successStatus);
+
+        }
+
+        if($success == 2){
+            $requestEmergency->driver_check_notarrived = 1;
+            $requestEmergency->save();
 
             return response()->json( $this->successStatus);
 

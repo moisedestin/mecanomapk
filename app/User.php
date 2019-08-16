@@ -4,6 +4,7 @@ namespace App;
 
 use App\Models\Location;
 use App\Models\Mechanic;
+use App\Models\RequestEmergency;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -54,4 +55,26 @@ class User extends Authenticatable
         return $this->belongsTo(Location::class);
 
     }
+
+    public function has_service_in_progress()
+    {
+
+        $mechanic = Mechanic::where("user_id", $this->id)->first();
+
+        if ($mechanic)
+            $request_emergencies = RequestEmergency::where("mechanic_user_id", $this->id)->get();
+        else
+            $request_emergencies = RequestEmergency::where("driver_user_id", $this->id)->get();
+
+        foreach ($request_emergencies as $request_emergency) {
+            if ($request_emergency->driver_decline == 1
+                || $request_emergency->mechanic_decline == 1
+                || $request_emergency->driver_check_arrived
+            )
+                return true;
+        }
+
+        return false;
+    }
+
 }
