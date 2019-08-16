@@ -61,6 +61,8 @@ class User extends Authenticatable
 
         $mechanic = Mechanic::where("user_id", $this->id)->first();
 
+        $request_emergencies = [];
+
         if ($mechanic)
             $request_emergencies = RequestEmergency::where("mechanic_user_id", $this->id)
                 ->where('is_mechanic_agree',true)
@@ -77,6 +79,8 @@ class User extends Authenticatable
                 ->where('driver_decline' , false)
                 ->where('driver_check_notarrived' , false)
                 ->get();
+
+
 
         if(count($request_emergencies) != 0)
             return true;
