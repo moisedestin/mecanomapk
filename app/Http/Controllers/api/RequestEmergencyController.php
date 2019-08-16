@@ -391,6 +391,8 @@ class RequestEmergencyController extends Controller
                 else{
 
                     $notification->end_time = true;
+                    array_push($array_final_notif,$notification);
+
                 }
             }
         }
@@ -465,6 +467,9 @@ class RequestEmergencyController extends Controller
                 else{
 
                     $notification->end_time = true;
+
+                    array_push($array_final_notif,$notification);
+
                 }
             }
         }
