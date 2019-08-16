@@ -327,7 +327,10 @@ class RequestEmergencyController extends Controller
 
                 $notification_array = [
                     'reload_without_notif' => true,
-                    'reload' => true
+                    'reload' => true,
+                    'title' => "mecanom",
+                    'body' => "mecanom"
+
                 ];
 
                 $notification = new Notification();
