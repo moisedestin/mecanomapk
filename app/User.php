@@ -67,11 +67,13 @@ class User extends Authenticatable
             $request_emergencies = RequestEmergency::where("driver_user_id", $this->id)->get();
 
         foreach ($request_emergencies as $request_emergency) {
-            if ($request_emergency->driver_decline == 1
-                || $request_emergency->mechanic_decline == 1
-                || $request_emergency->driver_check_arrived
-            )
+            if ($request_emergency->driver_decline == 0
+                && $request_emergency->mechanic_decline == 0
+                && !$request_emergency->driver_check_arrived
+            ){
+
                 return true;
+            }
         }
 
         return false;
