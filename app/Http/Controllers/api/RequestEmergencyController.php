@@ -349,6 +349,7 @@ class RequestEmergencyController extends Controller
                 $notification->driver_decline = $notification->request_emergency->driver_decline;
                 $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
                 $notification->driver_check_arrived = $notification->request_emergency->driver_check_arrived;
+                $notification->driver_check_notarrived = $notification->request_emergency->driver_check_notarrived;
                 $notification->is_rate = $notification->request_emergency->is_rate;
                 $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
                 $notification->driver_user_id = $notification->request_emergency->driver_user_id;
@@ -428,6 +429,7 @@ class RequestEmergencyController extends Controller
                 $notification->is_rate = $notification->request_emergency->is_rate;
                 $notification->mechanic_user_id = $notification->request_emergency->mechanic_user_id;
                 $notification->driver_user_id = $notification->request_emergency->driver_user_id;
+                $notification->driver_check_notarrived = $notification->request_emergency->driver_check_notarrived;
 
                 $delay = $notification->delay;
                 $date_start = Carbon::parse($notification->created_at);

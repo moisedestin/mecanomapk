@@ -130,6 +130,7 @@ class NotificationController extends Controller
         $notification->driver_decline = $requestEmergency->driver_decline;
         $notification->is_mechanic_arrived = $requestEmergency->is_mechanic_arrived;
         $notification->driver_check_arrived = $requestEmergency->driver_check_arrived;
+        $notification->driver_check_notarrived = $requestEmergency->driver_check_notarrived;
         $notification->mechanic_user_id = $requestEmergency->mechanic_user_id;
         $notification->driver_user_id = $requestEmergency->driver_user_id;
 
