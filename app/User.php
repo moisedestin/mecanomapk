@@ -70,6 +70,7 @@ class User extends Authenticatable
             if ($request_emergency->driver_decline == 0
                 && $request_emergency->mechanic_decline == 0
                 && !$request_emergency->driver_check_arrived
+                && !$request_emergency->driver_check_notarrived
             ){
 
                 return true;
