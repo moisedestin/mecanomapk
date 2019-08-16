@@ -335,6 +335,7 @@ class RequestEmergencyController extends Controller
             ->where('mechanic_decline' , false)
             ->where('driver_decline' , false)
             ->where('driver_check_arrived' , false)
+            ->where('driver_check_notarrived' , false)
             ->orderByDesc('created_at')
             ->get();
 
@@ -408,6 +409,7 @@ class RequestEmergencyController extends Controller
             ->where('driver_check_arrived' , false)
             ->where('mechanic_decline' , false)
             ->where('driver_decline' , false)
+            ->where('driver_check_notarrived' , false)
             ->orderByDesc('created_at')
             ->get();
 
