@@ -134,6 +134,10 @@ class RequestEmergencyController extends Controller
 
         $notification =  Notification::find($notif_id);
 
+        if($notification->delay == null)
+            $notification =  $notification->request_emergency->notifications->where("delay","!=",null)->first();
+
+
         $notification->mechanic_name = User::find($notification->request_emergency->mechanic_user_id)->email;
         $notification->driver_name = User::find($notification->request_emergency->driver_user_id)->email;
         $user =  User::find($notification->request_emergency->mechanic_user_id);
