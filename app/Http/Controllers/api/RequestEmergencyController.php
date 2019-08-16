@@ -317,7 +317,24 @@ class RequestEmergencyController extends Controller
             $requestEmergency->driver_check_notarrived = 1;
             $requestEmergency->save();
 
-            return response()->json( $this->successStatus);
+
+
+              $destination_token = User::find($requestEmergency->mechanic_user_id)->fbtoken;
+
+                $notification_array = [
+                    'reload_without_notif' => true,
+                    'reload' => true
+                ];
+
+                $notification = new Notification();
+
+                if($notification->pushnotification($destination_token,$notification_array)){
+                    return response()->json( $this->successStatus);
+
+                }
+                else
+                    return response()->json( 405);
+
 
         }
 
@@ -344,7 +361,7 @@ class RequestEmergencyController extends Controller
         $array_final_notif = [];
 
         foreach($request_emergencies as $request_emergency){
-            foreach ($request_emergency->notifications as $notification){
+            foreach ($request_emergency->notifications->where("delay","!=",null) as $notification){
                 $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
                 $notification->driver_decline = $notification->request_emergency->driver_decline;
                 $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
@@ -421,7 +438,7 @@ class RequestEmergencyController extends Controller
         $array_final_notif = [];
 
         foreach($request_emergencies as $request_emergency){
-            foreach ($request_emergency->notifications as $notification){
+            foreach ($request_emergency->notifications->where("delay","!=",null) as $notification){
                 $notification->mechanic_decline = $notification->request_emergency->mechanic_decline;
                 $notification->driver_decline = $notification->request_emergency->driver_decline;
                 $notification->is_mechanic_arrived = $notification->request_emergency->is_mechanic_arrived;
