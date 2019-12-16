@@ -117,12 +117,65 @@ class RequestEmergencyController extends Controller
 //        automatic end
 
 
-         if($notification->pushnotification($destination_token, $notification_array)){
-             return response()->json( $this->successStatus);
 
-         }
-         else
-             return response()->json( 405);
+
+//        automatic 2 start
+
+
+        $notification->pushnotification($destination_token, $notification_array);
+
+
+        $notification2 = new Notification;
+        $notification2->delay = '3 min';
+        $notification2->status = 1;
+        $notification2->recipient_id = auth('api')->user()->id;
+        $notification2->request_emergency_id = $requestEmergency->id;
+//        $notification->date = $request->date;
+        $notification2->date = date("j-m-y H:i");
+
+        $driverName = User::where('id', $request->mechanic_user_id)
+            ->select('name')
+            ->first()->name;
+        $notification2->body = $driverName." a accepté la demande et arrivera dans 3 min";
+        $notification2->save();
+
+        $request_emergency = RequestEmergency::find($requestEmergency->id);
+        $request_emergency->is_mechanic_agree = true;
+        $request_emergency->save();
+
+
+
+        $updateNotif = Notification::where("request_emergency_id",$requestEmergency->id)
+            ->where("recipient_id",$request->mechanic_user_id)
+            ->first();
+        $updateNotif->status = 1;
+        $updateNotif->save();
+
+
+        $destination_token2 = User::find(auth('api')->user()->id)->fbtoken;
+
+        $notification_array2 = [
+            'title' => "mecanom",
+            'sound' => true,
+            'body' => $notification2->body
+        ];
+
+        if($notification2->pushnotification($destination_token2,$notification_array2)){
+            return response()->json( $this->successStatus);
+
+        }
+        else
+            return response()->json( 405);
+
+        //automatic 2 end
+
+
+//         if($notification->pushnotification($destination_token, $notification_array)){
+//             return response()->json( $this->successStatus);
+//
+//         }
+//         else
+//             return response()->json( 405);
 
 
     }
