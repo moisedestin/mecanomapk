@@ -51,7 +51,7 @@ class RequestEmergencyController extends Controller
         $driverName = User::where('id', auth('api')->user()->id)
             ->select('email')
             ->first()->email;
-        $notification->body =  $driverName." a un probleme,cliquez ici pour voir plus d info";
+        $notification->body =  $driverName." a un problème, cliquez ici pour voir plus d'infos";
         $notification->title = "Demande de dépannage";
         $notification->save();
 
