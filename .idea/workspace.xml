@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Driver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Driver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Mechanic.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Mechanic.php" afterDir="false" />
-    </list>
+    <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,7 +94,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state relative-caret-position="-2080">
               <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
             </state>
           </provider>
@@ -108,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/app/Models/Mechanic.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="531">
-              <caret line="103" column="75" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="75" />
+              <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
             </state>
           </provider>
         </entry>
@@ -117,7 +113,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>savenotif</find>
       <find>getallmaker</find>
       <find>$incomming_loc</find>
       <find>mechanicco</find>
@@ -147,6 +142,7 @@
       <find>patientez</find>
       <find>mechanici</find>
       <find>image</find>
+      <find>150</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -452,12 +448,12 @@
       <workItem from="1576746681918" duration="1114000" />
       <workItem from="1576749082287" duration="390000" />
       <workItem from="1576749712024" duration="496000" />
-      <workItem from="1576751026402" duration="895000" />
+      <workItem from="1576751026402" duration="2101000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263127000" />
+    <option name="totallyTimeSpent" value="264333000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1366" height="987" extended-state="4" />
@@ -776,7 +772,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="-2080">
           <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
         </state>
       </provider>
@@ -784,7 +780,7 @@
     <entry file="file://$PROJECT_DIR$/app/Models/Mechanic.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="531">
-          <caret line="103" column="75" selection-start-line="103" selection-start-column="75" selection-end-line="103" selection-end-column="75" />
+          <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
         </state>
       </provider>
     </entry>
