@@ -101,7 +101,7 @@ class Mechanic extends Model
         // if a base64 was sent, store it in the db
         if (starts_with($value, 'data:image')) {
             // 0. Make the image
-            $image = Image::make($value)->encode('jpg', 90);
+            $image = Image::make($value)->encode('jpg', 90)->resize(150, 150);
             // 1. Generate a filename.
             $filename = md5($value . time()) . '.jpg';
             // 2. Store the image on disk.
