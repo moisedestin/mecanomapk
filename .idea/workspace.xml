@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="">
 
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -10,13 +11,16 @@
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" afterDir="false" />
 
     </list>
+=======
+    <list default="true" id="55b47f48-ecd7-461e-9bbd-acfa8fa2da81" name="Default" comment="" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ComposerSettings">
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="DONT_SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
       <executable />
@@ -26,12 +30,14 @@
     <option name="PATCH_PATH" value="" />
   </component>
   <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
     <option name="GROUP_SCHEMA" value="true" />
     <option name="GROUP_CONTENTS" value="false" />
     <option name="SORT_POSITIONED" value="false" />
-    <option name="SHOW_TABLE_DETAILS" value="true" />
     <option name="SHOW_EMPTY_GROUPS" value="false" />
     <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+<<<<<<< HEAD
     <PATH>
       <PATH_ELEMENT>
         <option name="myItemId" />
@@ -56,6 +62,71 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+=======
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="drivers: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="garages: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="locations: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="notifications: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="request_emergencies: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="mecanom@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="mecanom: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="vehicles: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+    </expand>
+    <select />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
@@ -71,6 +142,7 @@
               </folding>
 =======
       <file pinned="false" current-in-tab="false">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="945">
@@ -133,6 +205,12 @@
               <folding>
                 <element signature="e#2654#3123#0#PHP" expanded="false" />
               </folding>
+=======
+        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2080">
+              <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
             </state>
           </provider>
         </entry>
@@ -145,6 +223,7 @@
               <folding />
 =======
       <file pinned="false" current-in-tab="true">
+<<<<<<< HEAD
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
@@ -221,6 +300,12 @@
             <state relative-caret-position="320">
               <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
+=======
+        <entry file="file://$PROJECT_DIR$/app/Models/Mechanic.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="531">
+              <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
             </state>
           </provider>
         </entry>
@@ -230,11 +315,14 @@
   <component name="FindInProjectRecents">
     <findStrings>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
       <find>full</find>
       <find>send</find>
       <find>sendprocess</find>
       <find>savenotif</find>
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
       <find>getallmaker</find>
       <find>$incomming_loc</find>
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
@@ -271,7 +359,14 @@
       <find>send</find>
 =======
       <find>savem</find>
+<<<<<<< HEAD
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+      <find>patientez</find>
+      <find>mechanici</find>
+      <find>image</find>
+      <find>150</find>
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -295,7 +390,6 @@
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_002309_create_vehicles_table.php" />
         <option value="$PROJECT_DIR$/app/Models/Garage.php" />
         <option value="$PROJECT_DIR$/app/Driver.php" />
-        <option value="$PROJECT_DIR$/app/Models/Driver.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_065407_add_is_rate_to_notifications.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_05_12_151545_add_total_rating_to_mechanics.php" />
         <option value="$PROJECT_DIR$/database/migrations/2019_04_14_002746_create_notifications_table.php" />
@@ -318,7 +412,6 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RequestEmergencyCrudController.php" />
         <option value="$PROJECT_DIR$/config/geocoder.php" />
         <option value="$PROJECT_DIR$/storage/logs/laravel-2019-08-11.log" />
-        <option value="$PROJECT_DIR$/app/Models/Mechanic.php" />
         <option value="$PROJECT_DIR$/routes/api.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php" />
@@ -327,6 +420,8 @@
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php" />
+        <option value="$PROJECT_DIR$/app/Models/Driver.php" />
+        <option value="$PROJECT_DIR$/app/Models/Mechanic.php" />
       </list>
     </option>
   </component>
@@ -441,7 +536,7 @@
       <path value="$PROJECT_DIR$/vendor/beyondcode/laravel-dump-server" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="4">
     <option name="y" value="27" />
     <option name="width" value="1366" />
     <option name="height" value="987" />
@@ -451,6 +546,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -482,7 +578,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="Http" type="462c0819:PsiDirectoryNode" />
               <item name="Controllers" type="462c0819:PsiDirectoryNode" />
-              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="Admin" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="mecanomapk" type="b2602c69:ProjectViewProjectNode" />
@@ -494,7 +590,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -504,7 +599,7 @@
     <property name="editor.config.ad.shown" value="true" />
     <property name="js-jscs-nodeInterpreter" value="$PROJECT_DIR$/../../../linuxbrew/.linuxbrew/bin/node" />
     <property name="js.eslint.eslintPackage" value="" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../dofennews" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
@@ -583,12 +678,22 @@
       <workItem from="1576704452376" duration="137000" />
 =======
       <workItem from="1565483981677" duration="42211000" />
+<<<<<<< HEAD
       <workItem from="1576477684553" duration="1361000" />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+      <workItem from="1576477684553" duration="2937000" />
+      <workItem from="1576517453973" duration="20000" />
+      <workItem from="1576746681918" duration="1114000" />
+      <workItem from="1576749082287" duration="390000" />
+      <workItem from="1576749712024" duration="496000" />
+      <workItem from="1576751026402" duration="2101000" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
 <<<<<<< HEAD
     <option name="totallyTimeSpent" value="269660000" />
   </component>
@@ -616,17 +721,18 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
 =======
     <option name="totallyTimeSpent" value="258636000" />
+=======
+    <option name="totallyTimeSpent" value="264333000" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="27" width="1366" height="987" extended-state="0" />
+    <frame x="0" y="27" width="1366" height="987" extended-state="4" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2780303" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.29545453" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32576984" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -636,13 +742,19 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.27849588" />
-      <window_info anchor="right" id="JSON Viewer" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.2778429" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+<<<<<<< HEAD
       <window_info anchor="right" id="Database" order="3" weight="0.33585477" />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+      <window_info anchor="right" id="Database" order="3" weight="0.33560607" />
+      <window_info anchor="right" id="JSON Viewer" order="4" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -767,13 +879,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Driver.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="44" column="5" selection-start-line="44" selection-start-column="5" selection-end-line="44" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/backpack/custom.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -817,8 +922,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="27" selection-start-line="27" selection-end-line="27" />
+<<<<<<< HEAD
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
           <folding />
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -834,6 +942,7 @@
 =======
         <state relative-caret-position="656">
           <caret line="41" column="10" selection-start-line="41" selection-start-column="10" selection-end-line="41" selection-end-column="10" />
+<<<<<<< HEAD
           <folding />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
         </state>
@@ -889,6 +998,8 @@
         <state relative-caret-position="360">
           <caret line="71" column="25" selection-start-line="71" selection-start-column="21" selection-end-line="71" selection-end-column="25" />
           <folding />
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -899,8 +1010,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="26" />
+<<<<<<< HEAD
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
           <folding />
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -920,8 +1034,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
           <caret line="76" column="74" selection-start-line="76" selection-start-column="72" selection-end-line="76" selection-end-column="74" />
+<<<<<<< HEAD
           <folding />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -962,6 +1079,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="416">
           <caret line="27" column="21" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
+<<<<<<< HEAD
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
           <folding />
         </state>
@@ -1000,6 +1118,8 @@
           <folding>
             <element signature="e#2654#3123#0#PHP" />
           </folding>
+=======
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -1029,7 +1149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="689">
           <caret line="94" selection-start-line="94" selection-end-line="94" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,19 +1156,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="26" column="52" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/RequestEmergency.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="945">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="472">
+          <caret line="127" selection-start-line="127" selection-end-line="127" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/Mechanic.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="1650">
           <caret line="116" selection-start-line="116" selection-end-line="116" />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
@@ -1066,6 +1185,45 @@
         <state relative-caret-position="780">
           <caret line="93" selection-start-line="93" selection-end-line="93" />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+        <state relative-caret-position="300">
+          <caret line="41" lean-forward="true" selection-start-line="41" selection-end-line="41" />
+          <folding>
+            <element signature="e#44#66#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="256" column="62" selection-start-line="256" selection-start-column="62" selection-end-line="256" selection-end-column="62" />
+          <folding>
+            <element signature="e#44#66#0#PHP" expanded="true" />
+            <element signature="e#429#2495#0#PHP" />
+            <element signature="e#2501#3866#0#PHP" />
+            <element signature="e#3872#6253#0#PHP" />
+            <element signature="e#7619#9088#0#PHP" />
+            <element signature="e#9094#10775#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/ApiController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="769">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/MechanicController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="555">
+          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+          <folding>
+            <element signature="e#2654#3123#0#PHP" />
+          </folding>
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
@@ -1080,26 +1238,30 @@
             <marker date="1565932904889" expanded="true" signature="967:2134" ph="..." />
 =======
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
+        <state relative-caret-position="709">
           <caret line="58" selection-start-line="58" selection-end-line="58" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Models/RequestEmergency.php">
+    <entry file="file://$PROJECT_DIR$/app/User.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="127" selection-start-line="127" selection-end-line="127" />
+        <state relative-caret-position="210">
+          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/NotificationController.php">
+    <entry file="file://$PROJECT_DIR$/app/Models/Driver.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="301" column="41" selection-start-line="301" selection-start-column="41" selection-end-line="301" selection-end-column="41" />
+        <state relative-caret-position="419">
+          <caret line="43" column="34" selection-start-line="43" selection-start-column="34" selection-end-line="43" selection-end-column="34" />
           <folding>
+<<<<<<< HEAD
             <element signature="e#44#66#0#PHP" expanded="true" />
             <element signature="e#7619#9088#0#PHP" />
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+            <element signature="e#30#43#0#PHP" expanded="true" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
           </folding>
         </state>
       </provider>
@@ -1113,13 +1275,14 @@
 =======
     <entry file="file://$PROJECT_DIR$/app/Models/Notification.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="70" column="49" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
+        <state relative-caret-position="486">
+          <caret line="48" column="78" selection-start-line="48" selection-start-column="78" selection-end-line="48" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/api/RequestEmergencyController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/MechanicCrudController.php">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state relative-caret-position="345">
           <caret line="154" column="49" selection-start-line="154" selection-start-column="49" selection-end-line="154" selection-end-column="49" />
           <folding>
@@ -1127,6 +1290,17 @@
             <element signature="e#7177#9016#0#PHP" />
           </folding>
 >>>>>>> e34f1c32c0b6fb39c627945368566aaa80677887
+=======
+        <state relative-caret-position="-2080">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Models/Mechanic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="531">
+          <caret line="103" column="68" selection-start-line="103" selection-start-column="68" selection-end-line="103" selection-end-column="68" />
+>>>>>>> 6784e0fe75de7adf567af5b2e8d64ec791915922
         </state>
       </provider>
     </entry>
