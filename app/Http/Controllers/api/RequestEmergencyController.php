@@ -152,7 +152,17 @@ class RequestEmergencyController extends Controller
         $updateNotif->save();
 
 
-        $destination_token2 = auth('api')->user()->fbtoken;
+        if($request->fbtoken != null){
+            $user = User::find(auth('api')->user()->id);
+            $user->fbtoken = $request->fbtoken;
+            $user->save();
+            $destination_token2 = $request->fbtoken ;
+
+        }
+        else{
+            $destination_token2 =   auth('api')->user()->fbtoken;
+
+        }
 
         $notification_array2 = [
             'title' => "mecanom",
