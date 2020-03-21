@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\api;
 
+use App\Jobs\AutomaticAcceptNotification;
 use App\Models\Garage;
 use App\Models\Location;
 use App\Models\Mechanic;
@@ -170,14 +171,16 @@ class RequestEmergencyController extends Controller
             'body' => $notification2->body
         ];
 
-        sleep(30);
-        if($notification2->pushnotification($destination_token2,$notification_array2)){
+
+        AutomaticAcceptNotification::dispatch($notification2, $destination_token2, $notification_array2)->delay(now()->addSeconds(30));
+
+//        if($notification2->pushnotification($destination_token2,$notification_array2)){
 
             return response()->json( $this->successStatus);
 
-        }
-        else
-            return response()->json( 405);
+//        }
+//        else
+//            return response()->json( 405);
 
         //automatic 2 end
 
