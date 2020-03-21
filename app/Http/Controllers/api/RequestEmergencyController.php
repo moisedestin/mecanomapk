@@ -170,8 +170,9 @@ class RequestEmergencyController extends Controller
             'body' => $notification2->body
         ];
 
+        sleep(30);
         if($notification2->pushnotification($destination_token2,$notification_array2)){
-            sleep(30);
+
             return response()->json( $this->successStatus);
 
         }
