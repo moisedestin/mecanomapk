@@ -26,6 +26,7 @@ use App\Http\Controllers\Controller;
 //               $arrayFullMechanicModel1 = array_merge(array("user" =>$mechanic->user), $arrayFullMechanicModel);
 //
 //               array_push($mechanicList,$arrayFullMechanicModel1) ;
+            $mechanic->garage = Garage::where("mechanic_id", $mechanic->id)->first() ;
             $mechanic->location = $mechanic->user->location;
         }
 
@@ -41,29 +42,24 @@ use App\Http\Controllers\Controller;
         if(!empty($request->mechanic_id)){
             $mechanics_list = Mechanic::where('id','!=',$request->input("mechanic_id"))->get();
             foreach ($mechanics_list as $mechanic){
-                $mechanic->user = $mechanic->user;
                 $mechanic->location = $mechanic->user->location;
                 $mechanic->garage = Garage::where("mechanic_id",$mechanic->id)->first() ;
-
             }
 
             $mechanics = $mechanics_list->toArray();
 
             $result_mechanic = Mechanic::find($request->input("mechanic_id"));
 
-            $result_mechanic->user = $result_mechanic->user;
             $result_mechanic->location = $result_mechanic->user->location;
-            $result_mechanic->garage = Garage::where("mechanic_id",$result_mechanic->id)->first() ;
+            $result_mechanic->garage = Garage::where("mechanic_id", $result_mechanic->id)->first() ;
 
             array_unshift($mechanics , $result_mechanic);
         }
         else{
             $mechanics = Mechanic::all();
             foreach ($mechanics as $mechanic){
-                $mechanic->user = $mechanic->user;
                 $mechanic->location = $mechanic->user->location;
-                $mechanic->garage = Garage::where("mechanic_id",$mechanic->id)->first() ;
-
+                $mechanic->garage = Garage::where("mechanic_id", $mechanic->id)->first() ;
             }
         }
 
