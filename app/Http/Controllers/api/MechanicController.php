@@ -54,6 +54,8 @@ use App\Http\Controllers\Controller;
 
             $result_mechanic = Mechanic::find($request->input("mechanic_id"));
 
+
+            $result_mechanic->services = Json::encode($result_mechanic->services);
             $result_mechanic->location = $result_mechanic->user->location;
             $result_mechanic->garage = Garage::where("mechanic_id", $result_mechanic->id)->first() ;
 
