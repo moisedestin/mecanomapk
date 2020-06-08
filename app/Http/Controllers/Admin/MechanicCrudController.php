@@ -36,6 +36,8 @@ class MechanicCrudController extends CrudController
         |--------------------------------------------------------------------------
         */
 
+        $entry = $this->crud->getCurrentEntry();
+
         // TODO: remove setFromDb() and manually define Fields and Columns
 //        $this->crud->setFromDb();
         $this->crud->setColumns(['phone1','phone2','availability','image','rating']);
@@ -71,9 +73,15 @@ class MechanicCrudController extends CrudController
         $this->crud->addField([
             'name'=>'full_name',
             'label'=>'Ful Name',
-            'type'=>'text'
+            'type'=>'text',
+            'value' => $entry? $entry->user->name : ''
+        ]);
 
-        ],'create');
+        $this->crud->addField([
+            'name'=>'small_description',
+            'label'=>'Description',
+            'type'=>'textarea'
+        ]);
 
         $this->crud->addField([
             'name'=>'gender',
@@ -106,32 +114,41 @@ class MechanicCrudController extends CrudController
         ],'create');
 
         $this->crud->addField([
+            'name'=>'email',
+            'label'=>'Email',
+            'type'=>'email',
+            'attributes' => [
+                'disabled' => 'disabled'
+            ],
+            'value' => $entry? $entry->user->email : ''
+
+        ],'update');
+
+        $this->crud->addField([
             'name'=>'phone1',
             'label'=>'Phone 2',
             'type'=>'text'
-
         ]);
 
         $this->crud->addField([
             'name'=>'phone2',
             'label'=>'Phone 2',
             'type'=>'text'
-
         ]);
 
         $this->crud->addField([
             'name'=>'garage_name',
             'label'=>'Nom du garage',
-            'type'=>'text'
-
-        ],'create');
+            'type'=>'text',
+            'value' => $entry? $entry->garage->name : ''
+        ]);
 
         $this->crud->addField([
-            'name'=>'address',
-            'label'=>'Addresse',
-            'type'=>'text'
-
-        ],'create');
+            'name'=>'garage_address',
+            'label'=>'Addresse Garage',
+            'type'=>'text',
+            'value' => $entry? $entry->garage->addresse : ''
+        ]);
 
         $this->crud->addField([
             'name'=>'rating',
@@ -141,12 +158,12 @@ class MechanicCrudController extends CrudController
                 "step" => "any",
                 "max" => 5,
                 "min" => 0,
+                'disabled' => 'disabled'
             ],
             'type'=>'number'
 
         ],'update');
 
-        //todo:: services
         $this->crud->addField([ // select_from_array
             'name' => 'services',
             'label' => "Services",
@@ -236,15 +253,20 @@ class MechanicCrudController extends CrudController
 
     public function update(UpdateRequest $request)
     {
-
-
-        $request['services'] = \GuzzleHttp\json_encode($request->services);
-
-
-        // your additional operations before save here
         $redirect_location = parent::updateCrud($request);
-        // your additional operations after save here
-        // use $this->data['entry'] or $this->crud->entry
+
+        $mechanic = $this->crud->entry;
+        $user = $mechanic->user;
+        $garage = $mechanic->garage;
+
+        $user->name = $request->full_name;
+        $user->save();
+
+        $garage->name = $request->garage_name;
+        $garage->addresse = $request->garage_address;
+        $garage->save();
+
+
         return $redirect_location;
     }
 }

@@ -22,7 +22,8 @@ class Mechanic extends Model
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
-//availability_field
+
+    //availability_field
     const AVAILABLE = 1;
     const NOT_AVAILABLE = 0;
 
@@ -35,10 +36,24 @@ class Mechanic extends Model
     const HAVENOt_TUG = 1;
 
     protected $fillable = [
-        'user_id','phone1','phone2','availability', 'services','total_rating','rating','image'
+        'user_id',
+        'phone1',
+        'phone2',
+        'availability',
+        'services',
+        'total_rating',
+        'rating',
+        'image',
+        'birthday',
+        'small_description',
+        'long_description'
     ];
     // protected $hidden = [];
     // protected $dates = [];
+
+    protected $casts = [
+        'services' => 'array'
+    ];
 
     /*
     |--------------------------------------------------------------------------
