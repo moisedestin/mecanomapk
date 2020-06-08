@@ -18,7 +18,8 @@ use App\Http\Controllers\Controller;
     public function getAllMaker(Request $request) {
 //        $mechanicList = array();
 
-        $mechanics = Mechanic::all();
+        $mechanics = Mechanic::all()
+        ;
         foreach ($mechanics as $mechanic){
 //               $mechanic->user->makeHidden(["password","token"]);
 //               $location = Location::find($mechanic->location_id);
@@ -44,6 +45,7 @@ use App\Http\Controllers\Controller;
         if(!empty($request->mechanic_id)){
             $mechanics_list = Mechanic::where('id','!=',$request->input("mechanic_id"))->get();
             foreach ($mechanics_list as $mechanic){
+                $mechanic->services = Json::encode($mechanic->services);
                 $mechanic->location = $mechanic->user->location;
                 $mechanic->garage = Garage::where("mechanic_id",$mechanic->id)->first() ;
             }
