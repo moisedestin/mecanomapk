@@ -9,6 +9,7 @@ use App\Models\Mechanic;
  use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
  use Illuminate\Support\Facades\Log;
+ use Psy\Util\Json;
 
  class MechanicController extends Controller
 {
@@ -26,6 +27,7 @@ use App\Http\Controllers\Controller;
 //               $arrayFullMechanicModel1 = array_merge(array("user" =>$mechanic->user), $arrayFullMechanicModel);
 //
 //               array_push($mechanicList,$arrayFullMechanicModel1) ;
+            $mechanic->services = Json::encode($mechanic->services);
             $mechanic->garage = Garage::where("mechanic_id", $mechanic->id)->first() ;
             $mechanic->location = $mechanic->user->location;
         }
