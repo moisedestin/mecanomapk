@@ -17,12 +17,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::group(['namespace' => 'api' 
+Route::group(['namespace' => 'api'
 ], function () {
 
-Route::post('login', 'ApiController@login');
-Route::post('register', 'ApiController@register');
-Route::post('refreshfbtoken', 'ApiController@refreshFbToken');
+    Route::post('login', 'ApiController@login');
+    Route::post('gmail/login', 'ApiController@loginWithGmail');
+    Route::post('register', 'ApiController@register');
+    Route::post('refreshfbtoken', 'ApiController@refreshFbToken');
 
 });
 
@@ -44,12 +45,9 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 
     Route::post('getAllNotif', 'NotificationController@getAllNotif');
     Route::post('getAllHisto', 'NotificationController@getAllHisto');
-    Route::post('getNotifInfo','NotificationController@getNotifInfo');
+    Route::post('getNotifInfo', 'NotificationController@getNotifInfo');
     Route::post('notifRequestFromCancel', 'NotificationController@notifRequestFromCancel');
     Route::post('notifRequestFromAccept', 'NotificationController@notifRequestFromAccept');
-
-
-
 
 
     Route::post('getCurrentStatus', 'ApiController@getCurrentStatus');
