@@ -78,6 +78,40 @@ class ApiController extends Controller
         return $user->toJson();
     }
 
+    public function loginWithFacebook(Request $request) {
+//        if(!$request->name) {
+//            return response()->json(['message'=> 'Name is required'], 400);
+//        }
+
+
+
+        $user = User::whereEmail($request->email)->first();
+
+        if (!$user) {
+            $user = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'authId' => $request->authId,
+            ]);
+
+            //insert driver
+            Driver::create([
+                "user_id" => $user->id
+            ]);
+        }
+
+        $success['token'] = $user->createToken('kopilot')->accessToken;
+        $user->token = $success['token'] ;
+        $mechanic = Mechanic::where("user_id",$user->id)->first();
+        $user->fbtoken = $request['fbtoken'];
+        if($mechanic)
+            $user->ismechanic = 1 ;
+
+        $user->save();
+
+        return $user->toJson();
+    }
+
     public function register(Request $request) {
         $validator = Validator::make($request->all(), [
             'email' => 'required|unique:users,email',
