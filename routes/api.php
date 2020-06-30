@@ -32,6 +32,7 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 ], function () {
 
     Route::post('getAllMaker', 'MechanicController@getAllMaker');
+    Route::get('all-vehicles', 'VehicleController@getAllVehicles');
     Route::post('getAllMechanic', 'MechanicController@getAllMechanic');
     Route::post('sendMechanicLocation', 'MechanicController@sendMechanicLocation');
     Route::post('changeMechanicLocation', 'MechanicController@changeMechanicLocation');

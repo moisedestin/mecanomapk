@@ -40,7 +40,9 @@ class Vehicle extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-
+    public function driver() {
+        return $this->hasOne(Driver::class, 'vehicule_id');
+    }
     /*
     |--------------------------------------------------------------------------
     | SCOPES

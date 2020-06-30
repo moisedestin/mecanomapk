@@ -38,10 +38,12 @@ class Driver extends Model
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function vehicule() { }
-
     public function user() {
         return $this->belongsTo(User::class);
+    }
+
+    public function vehicle() {
+        return $this->belongsTo(Vehicle::class,'vehicule_id');
     }
     /*
     |--------------------------------------------------------------------------
