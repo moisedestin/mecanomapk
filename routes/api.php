@@ -22,6 +22,7 @@ Route::group(['namespace' => 'api'
 
     Route::post('login', 'ApiController@login');
     Route::post('gmail/login', 'ApiController@loginWithGmail');
+    Route::post('facebook/login', 'ApiController@loginWithFacebook');
     Route::post('register', 'ApiController@register');
     Route::post('refreshfbtoken', 'ApiController@refreshFbToken');
 
