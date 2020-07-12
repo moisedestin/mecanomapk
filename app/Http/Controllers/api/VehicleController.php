@@ -11,7 +11,7 @@ use Illuminate\Support\Collection;
 class VehicleController extends Controller
 {
     public function getAllVehicles(Request $request) {
-        $vehicles = Vehicle::get();
+        $vehicles = auth()->user()->driver->vehicles;
         return $vehicles->toJson();
     }
 }

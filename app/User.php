@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Driver;
 use App\Models\Location;
 use App\Models\Mechanic;
 use App\Models\RequestEmergency;
