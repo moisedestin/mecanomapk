@@ -32,12 +32,13 @@ Route::group(['namespace' => 'api'
 Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 ], function () {
 
-    Route::post('getAllMaker', 'MechanicController@getAllMaker');
     Route::get('all-vehicles', 'VehicleController@getAllVehicles');
+    Route::post('save-vehicle', 'VehicleController@saveVehicle');
+
+    Route::post('getAllMaker', 'MechanicController@getAllMaker');
     Route::post('getAllMechanic', 'MechanicController@getAllMechanic');
     Route::post('sendMechanicLocation', 'MechanicController@sendMechanicLocation');
     Route::post('changeMechanicLocation', 'MechanicController@changeMechanicLocation');
-
 
     Route::post('saveNotifClientMainRequest', 'RequestEmergencyController@saveNotifClientMainRequest');
     Route::post('getRemainingTime', 'RequestEmergencyController@getRemainingTime');
@@ -50,7 +51,6 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
     Route::post('getNotifInfo', 'NotificationController@getNotifInfo');
     Route::post('notifRequestFromCancel', 'NotificationController@notifRequestFromCancel');
     Route::post('notifRequestFromAccept', 'NotificationController@notifRequestFromAccept');
-
 
     Route::post('getCurrentStatus', 'ApiController@getCurrentStatus');
     Route::post('setRating', 'ApiController@setRating');
