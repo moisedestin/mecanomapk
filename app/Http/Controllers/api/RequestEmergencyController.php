@@ -24,11 +24,10 @@ class RequestEmergencyController extends Controller
     public function saveNotifClientMainRequest(Request $request) {
 
         $array = $request->detailVehicule;
+        $array["driver_id"] = auth()->user()->driver->id;
         $detailvehicule = Vehicle::create($array);
 
-
         $location = Location::create($request->locations);
-
 
 
         $requestEmergency = new RequestEmergency;
@@ -36,7 +35,9 @@ class RequestEmergencyController extends Controller
         $requestEmergency->location_id= $location->id;
         $requestEmergency->trouble = $array["trouble"];
         $requestEmergency->place_details = $array["place_details"];
-        $requestEmergency->telephone = $array["telephone"];
+        if ($request->has('telephone')) {
+            $requestEmergency->telephone = $array["telephone"];
+        }
         $requestEmergency->mechanic_user_id = $request->mechanic_user_id;
         $requestEmergency->driver_user_id = auth('api')->user()->id;
         $requestEmergency->save();

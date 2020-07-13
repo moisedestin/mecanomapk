@@ -26,6 +26,7 @@ class Vehicle extends Model
         'country',
         'year',
         'transmission',
+        'driver_id'
     ];    // protected $hidden = [];
     // protected $dates = [];
 
