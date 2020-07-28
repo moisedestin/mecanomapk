@@ -25,7 +25,16 @@ class RequestEmergencyController extends Controller
 
         $array = $request->detailVehicule;
         $array["driver_id"] = auth()->user()->driver->id;
-        $detailvehicule = Vehicle::create($array);
+
+        $detailvehicule = Vehicle::firstOrCreate([
+            'driver_id' => $array['driver_id'],
+            'mark' => $array['mark'],
+            'model' => $array['model'],
+            'transmission' => $array['transmission'],
+            'color' => $array['color'],
+            'year' => $array['year']
+        ]);
+
 
         $location = Location::create($request->locations);
 
