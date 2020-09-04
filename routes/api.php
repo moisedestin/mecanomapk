@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 |
 */
 
+\Illuminate\Support\Facades\Log::debug(\request()->fullUrl(), \request()->all());
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -34,6 +36,7 @@ Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 
     Route::get('all-vehicles', 'VehicleController@getAllVehicles');
     Route::post('save-vehicle', 'VehicleController@saveVehicle');
+    Route::post('vehicle/delete', 'VehicleController@deleteMechanicVehicle');
 
     Route::post('getAllMaker', 'MechanicController@getAllMaker');
     Route::post('getAllMechanic', 'MechanicController@getAllMechanic');
