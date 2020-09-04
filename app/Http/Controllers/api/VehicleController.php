@@ -7,6 +7,7 @@ use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Log;
 
 class VehicleController extends Controller
 {
@@ -52,17 +53,16 @@ class VehicleController extends Controller
             ], 401);
         }
 
-        $vehicles = auth()->user()->driver->vehicles;
-        $vehicle_data = $request->all();
+        $driver = auth()->user()->driver;
+        $vehicle_to_del_data = $request->vehicle;
 
-        //todo:: to test
-        $vehicles->where([
-            'driver_id' => $vehicle_data['driver_id'],
-            'mark' => $vehicle_data['mark'],
-            'model' => $vehicle_data['model'],
-            'transmission' => $vehicle_data['transmission'],
-            'color' => $vehicle_data['color'],
-            'year' => $vehicle_data['year']
+        Vehicle::where([
+            'driver_id' => $driver->id,
+            'mark' => $vehicle_to_del_data['mark'],
+            'model' => $vehicle_to_del_data['model'],
+            'transmission' => $vehicle_to_del_data['transmission'],
+            'color' => $vehicle_to_del_data['color'],
+            'year' => $vehicle_to_del_data['year']
         ])->delete();
 
         return $this->getAllVehicles($request);
