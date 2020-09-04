@@ -21,7 +21,7 @@ class Driver extends Model
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-//        'user_id',
+        'user_id',
     ];
 
       // protected $hidden = [];

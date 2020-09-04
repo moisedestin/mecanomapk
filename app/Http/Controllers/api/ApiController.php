@@ -74,7 +74,7 @@ class ApiController extends Controller
             $user->ismechanic = 1 ;
 
         $user->save();
-
+        Auth::login($user);
         return $user->toJson();
     }
 
@@ -108,7 +108,7 @@ class ApiController extends Controller
             $user->ismechanic = 1 ;
 
         $user->save();
-
+        Auth::login($user);
         return $user->toJson();
     }
 
@@ -139,6 +139,7 @@ class ApiController extends Controller
         Driver::create([
             "user_id" => $user->id
         ]);
+        Auth::login($user);
 
         return response()->json($user,$this->successStatus);
     }
