@@ -2,11 +2,10 @@
 
 namespace App\Models;
 
-use App\User;
 use Illuminate\Database\Eloquent\Model;
 use Backpack\CRUD\CrudTrait;
 
-class Driver extends Model
+class OfflineVehicle extends Model
 {
     use CrudTrait;
 
@@ -16,15 +15,19 @@ class Driver extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'drivers';
+    protected $table = 'offline_vehicles';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     // protected $guarded = ['id'];
     protected $fillable = [
-        'user_id',
-    ];
-
-      // protected $hidden = [];
+        'model',
+        'mark',
+        'color',
+        'country',
+        'year',
+        'transmission',
+        'driver_id'
+    ];    // protected $hidden = [];
     // protected $dates = [];
 
     /*
@@ -32,22 +35,15 @@ class Driver extends Model
     | FUNCTIONS
     |--------------------------------------------------------------------------
     */
+    //todo:: create Vehicle from OfflineVehicle function
 
     /*
     |--------------------------------------------------------------------------
     | RELATIONS
     |--------------------------------------------------------------------------
     */
-    public function user() {
-        return $this->belongsTo(User::class);
-    }
-
-    public function vehicles() {
-        return $this->hasMany(Vehicle::class);
-    }
-
-    public function offlineVehicles() {
-        return $this->hasMany(OfflineVehicle::class);
+    public function driver() {
+        return $this->belongsTo(Driver::class);
     }
     /*
     |--------------------------------------------------------------------------

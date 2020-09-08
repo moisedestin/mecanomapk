@@ -2,21 +2,18 @@
 
 namespace App\Http\Controllers\api;
 
-use App\Driver;
-use App\Models\Vehicle;
+use App\Models\OfflineVehicle;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\Log;
 
 class VehicleController extends Controller
 {
-    public function getAllVehicles(Request $request) {
-        $vehicles = auth()->user()->driver->vehicles;
+    public function getAllOfflineVehicles(Request $request) {
+        $vehicles = auth()->user()->driver->offlineVehicles;
         return $vehicles->toJson();
     }
 
-    public function saveVehicle(Request $request) {
+    public function saveOfflineVehicle(Request $request) {
         if (!auth()->check()) {
             return response()->json([
                 'message' => "Vous n'avez pas accès à cette ressource"
@@ -28,7 +25,7 @@ class VehicleController extends Controller
             ], 401);
         }
 
-        $vehicle = new Vehicle();
+        $vehicle = new OfflineVehicle();
         $vehicle->mark = $request->mark;
         $vehicle->model = $request->model;
         $vehicle->color = $request->color;
@@ -41,7 +38,7 @@ class VehicleController extends Controller
         return $vehicle;
     }
 
-    public function deleteMechanicVehicle(Request $request) {
+    public function deleteOfflineVehicle(Request $request) {
         if (!auth()->check()) {
             return response()->json([
                 'message' => "Vous n'avez pas accès à cette ressource"
@@ -56,7 +53,7 @@ class VehicleController extends Controller
         $driver = auth()->user()->driver;
         $vehicle_to_del_data = $request->vehicle;
 
-        Vehicle::where([
+        OfflineVehicle::where([
             'driver_id' => $driver->id,
             'mark' => $vehicle_to_del_data['mark'],
             'model' => $vehicle_to_del_data['model'],
@@ -65,6 +62,6 @@ class VehicleController extends Controller
             'year' => $vehicle_to_del_data['year']
         ])->delete();
 
-        return $this->getAllVehicles($request);
+        return $this->getAllOfflineVehicles($request);
     }
 }

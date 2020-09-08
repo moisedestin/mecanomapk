@@ -7,6 +7,7 @@ use App\Models\Garage;
 use App\Models\Location;
 use App\Models\Mechanic;
 use App\Models\Notification;
+use App\Models\OfflineVehicle;
 use App\Models\RequestEmergency;
 use App\Models\Vehicle;
 use App\User;
@@ -26,14 +27,17 @@ class RequestEmergencyController extends Controller
         $array = $request->detailVehicule;
         $array["driver_id"] = auth()->user()->driver->id;
 
-        $detailvehicule = Vehicle::firstOrCreate([
+        $model_data = [
             'driver_id' => $array['driver_id'],
             'mark' => $array['mark'],
             'model' => $array['model'],
             'transmission' => $array['transmission'],
             'color' => $array['color'],
             'year' => $array['year']
-        ]);
+        ];
+
+        OfflineVehicle::firstOrCreate($model_data);
+        $detailvehicule = Vehicle::firstOrCreate($model_data);
 
 
         $location = Location::create($request->locations);

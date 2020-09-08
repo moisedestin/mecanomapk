@@ -34,9 +34,9 @@ Route::group(['namespace' => 'api'
 Route::group(['namespace' => 'api', 'middleware' => 'auth:api'
 ], function () {
 
-    Route::get('all-vehicles', 'VehicleController@getAllVehicles');
-    Route::post('save-vehicle', 'VehicleController@saveVehicle');
-    Route::post('vehicle/delete', 'VehicleController@deleteMechanicVehicle');
+    Route::get('all-vehicles', 'VehicleController@getAllOfflineVehicles');
+    Route::post('save-vehicle', 'VehicleController@saveOfflineVehicle');
+    Route::post('vehicle/delete', 'VehicleController@deleteOfflineVehicle');
 
     Route::post('getAllMaker', 'MechanicController@getAllMaker');
     Route::post('getAllMechanic', 'MechanicController@getAllMechanic');
